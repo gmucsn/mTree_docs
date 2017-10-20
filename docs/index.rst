@@ -29,7 +29,7 @@ mTree is a framework based on Python and HTML:
 Contact
 ^^^^^^^
 
-something@someplace.org
+mtree.email@gmail.com
 
 
 Contents:
