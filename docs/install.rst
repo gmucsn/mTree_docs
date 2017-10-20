@@ -1,14 +1,9 @@
-.. _conceptual_overview:
+.. _install:
 
-Conceptual overview
+Installation
 ===================
 
-Sessions
+Basic Installation
 --------
 
-In oTree, a session is an event during which multiple participants take part in a series of tasks or games.
-An example of a session would be:
-
-"A number of participants will come to the lab and play a public goods game, followed by a
-questionnaire. Participants get paid EUR 10.00 for showing up, plus their earnings from the
-games."
+Assuming you have Python 3.6 available on your system, you can then install mTree using the command: pip install mTree
