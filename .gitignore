@@ -36,7 +36,8 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
-# Editor backup files #
+# Editor backup, config files #
 #######################
 *~
 .idea
+.vscode
