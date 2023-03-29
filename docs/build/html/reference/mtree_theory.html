@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theory &mdash; mTree 1.2.1b documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference" href="reference.html" />
+    <link rel="prev" title="Quickstart Guide" href="../start_here/quick_start.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> mTree
+          </a>
+              <div class="version">
+                1.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../start_here/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start_here/quick_start.html">Quickstart Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Theory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#microeconomic-systems">Microeconomic Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-importance-of-compuational-replication">The Importance of Compuational Replication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference_short.html">References Short</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/contributor_guide.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html">Examples Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#biggind-game">Biggind Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#tatonnement">Tatonnement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#sealed-bid-auction">Sealed Bid Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#ascending-price-auction">Ascending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#descending-price-auction">Descending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#common-value-auction">Common Value Auction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mTree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Theory</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/mtree_theory.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="theory">
+<h1>Theory<a class="headerlink" href="#theory" title="Permalink to this heading"></a></h1>
+<section id="microeconomic-systems">
+<span id="mes-theory"></span><span id="mtree-theory"></span><h2>Microeconomic Systems<a class="headerlink" href="#microeconomic-systems" title="Permalink to this heading"></a></h2>
+<p>In 1960 and 1973 Leonid Hurwicz presented a framework for studying microeconomic systems.  His framework consisted of four elements.</p>
+<ol class="arabic simple">
+<li><p>An environment, $e in E$ which defines the initial state of the microeconomic system, $q^0 in Q$ and described the agents who make decisions in order to change state.</p></li>
+<li><p>An institution, $I$, which defines a message space, $M$, that allow agents to coordinate their actions in order to change the state of the microeconomic system, and rules, $G = {g_1, …, }$ which govern the admissibility of a message, and rules $H = {h_1, …, }$ which change state based on the messages received.</p></li>
+<li><p>A performance measure, $F: Q to R$ which determines the value of being in state $q in Q$.</p></li>
+<li><p>Behavioral functions $b_k in B$, such that, $m_k = b_k(e, I)$</p></li>
+</ol>
+<p>mTree projects use the microeconomic systems framework to run simulations and experiments a delimited sets of variables in a well-defined environment.
+This framework was first proposed and adapted to experimental economics by Vernon Smith in 1982.</p>
+</section>
+<section id="the-importance-of-compuational-replication">
+<h2>The Importance of Compuational Replication<a class="headerlink" href="#the-importance-of-compuational-replication" title="Permalink to this heading"></a></h2>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p>Hurowicz, Leonid. “Optimality and Information Efficiency in Resource Allocation Processes,” in Kenneth Arrow et al., eds., Mathematical Methods in the Social Sciences, Stanford: Stanford University, 1960, 27-46.</p>
+<p>_________________. “The Design of Mechanisms for Resource Allocation,” <em>American Economic Review Proceedings</em>, May 1973, 63, 1-30.</p>
+<p>Smith, Vernon L. “Microeconomic Systems as an Experimental Science,” <em>The American Economic Review</em>, Dec., 1982, Vol. 72, No 5, 923-955.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../start_here/quick_start.html" class="btn btn-neutral float-left" title="Quickstart Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reference.html" class="btn btn-neutral float-right" title="Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CEE Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #105a04;
+    }
+    /* Sidebar */
+    .wy-nav-side {
+      background: #105a04;
+    }
+  </style>
+
+
+</body>
+</html>

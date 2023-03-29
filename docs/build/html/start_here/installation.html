@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; mTree 1.2.1b documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quickstart Guide" href="quick_start.html" />
+    <link rel="prev" title="Overview" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> mTree
+          </a>
+              <div class="version">
+                1.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-docker-desktop">Installing Docker Desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-mtree">Installing mTree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mtree-container-setup">mTree Container Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#container-options">Container Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#start">Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stop">Stop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restart">Restart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete">Delete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#open-shell">Open Shell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/mtree_theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/reference_short.html">References Short</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/contributor_guide.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html">Examples Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#tatonnement">Tatonnement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#sealed-bid-auction">Sealed Bid Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#ascending-price-auction">Ascending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#descending-price-auction">Descending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#common-value-auction">Common Value Auction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mTree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/start_here/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>In order to run <strong>mTree</strong> we need to install <a class="reference external" href="https://www.docker.com">Docker Desktop</a>  first.</p>
+<section id="installing-docker-desktop">
+<span id="install-docker-desk"></span><h2>Installing Docker Desktop<a class="headerlink" href="#installing-docker-desktop" title="Permalink to this heading"></a></h2>
+<p>The links for <strong>Docker Desktop</strong> installation for different <strong>os</strong> can be found below.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://www.docker.com/products/docker-desktop">Download Docker Desktop</a></p></li>
+</ul>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you have a <strong>Windows</strong> machine and end up at the following prompt after installing <strong>Docker Desktop</strong> -</p>
+<figure class="align-default" id="id2">
+<img alt="../_images/installation_wls_kernel_update.png" src="../_images/installation_wls_kernel_update.png" />
+<figcaption>
+<p><span class="caption-text">WLS 2 Installation Incomplete</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Visit the link and only complete <strong>Step 4</strong> from the webpage</p>
+</div>
+<p>After completing the <strong>Docker Desktop</strong> installation, we can start installing <strong>mTree</strong></p>
+</section>
+<section id="installing-mtree">
+<span id="install-mtree"></span><h2>Installing mTree<a class="headerlink" href="#installing-mtree" title="Permalink to this heading"></a></h2>
+<p>You can install <strong>mTree</strong> by pasting the following code in your Command Prompt, PowerShell or Terminal.
+However, make sure to check for the latest version of <strong>mTree</strong> <a class="reference external" href="https://hub.docker.com/r/mtree/mtree/tags">here</a>,
+in case the one below is out of date.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker pull mtree/mtree:1.0.11c</span>
+</pre></div>
+</div>
+<p>After pasting and running the command in your Command Prompt, your screen should look
+like something like this</p>
+<figure class="align-center" id="id3">
+<img alt="../_images/installation_mTree_docker_pull.png" src="../_images/installation_mTree_docker_pull.png" />
+<figcaption>
+<p><span class="caption-text">Your Command Prompt/Terminal/PowerShell after docker pull command</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get an <strong>ERROR</strong> message in your <strong>Command Prompt</strong> try running the command after
+starting the <strong>Docker Desktop</strong> App and see if that helps.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important that your <strong>Command Prompt</strong> is based in the same virtual environment where you
+have <strong>Docker Desktop</strong> installed in order for the docker pull command to work.
+If you don’t understand what this means, you don’t have to worry about this.</p>
+</div>
+</section>
+<section id="mtree-container-setup">
+<span id="id1"></span><h2>mTree Container Setup<a class="headerlink" href="#mtree-container-setup" title="Permalink to this heading"></a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t have an <strong>mTree</strong> simulation that is ready to run or you are new to <strong>mTree</strong>, visit
+the <a class="reference internal" href="quick_start.html"><span class="doc">Quickstart Guide</span></a> before you do this next step.</p>
+</div>
+<p>Open <strong>Docker Desktop</strong> app on your computer and click
+<strong>Images</strong> on the sidebar.</p>
+<figure class="align-center" id="id4">
+<img alt="../_images/mTree_image.png" src="../_images/mTree_image.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Images</strong> Section on the <strong>Docker Desktop</strong> App</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>You should see the <strong>mTree</strong> image we just downloaded through docker hub in the previous step.
+In the next step, we are going to run this image within a small virtualization of the <strong>os</strong> called a
+<strong>container</strong>. We can create our docker <strong>container</strong> by clicking <strong>RUN</strong> on the <strong>mTree</strong> image.</p>
+<p>After that you should see the following window. Follow all the steps, in the image below, before moving
+on to the next step.</p>
+<figure class="align-center" id="id5">
+<img alt="../_images/mTree_container_setup.png" src="../_images/mTree_container_setup.png" />
+<figcaption>
+<p><span class="caption-text"><strong>mTree</strong> container setup</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Once all the instructions in the above image are completed, you should click <strong>Containers/Apps</strong>
+on the sidebar. After hitting <strong>Containers/Apps</strong>, you should see the following container -</p>
+<figure class="align-center" id="id6">
+<img alt="../_images/installation_unstarted_container.png" src="../_images/installation_unstarted_container.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Container/Apps</strong> Section on the <strong>Docker Desktop</strong> App</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="container-options">
+<span id="mtree-container-options"></span><h3>Container Options<a class="headerlink" href="#container-options" title="Permalink to this heading"></a></h3>
+<p>Your container comes with several options that can be executed to change its
+state.</p>
+<section id="start">
+<span id="mtree-container-start"></span><h4>Start<a class="headerlink" href="#start" title="Permalink to this heading"></a></h4>
+<p>Click <code class="docutils literal notranslate"><span class="pre">START</span></code> to start your container.</p>
+<figure class="align-center" id="id7">
+<img alt="../_images/start_button.png" src="../_images/start_button.png" />
+<figcaption>
+<p><span class="caption-text"><strong>START</strong> button</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A running docker container should have a green symbol on the left side.</p>
+<figure class="align-center" id="id8">
+<img alt="../_images/started_container.png" src="../_images/started_container.png" />
+<figcaption>
+<p><span class="caption-text">A running docker container</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="stop">
+<span id="mtree-container-stop"></span><h4>Stop<a class="headerlink" href="#stop" title="Permalink to this heading"></a></h4>
+<p>You can stop running your container by pressing <code class="docutils literal notranslate"><span class="pre">STOP</span></code> button</p>
+<figure class="align-center" id="id9">
+<img alt="../_images/stop_button.png" src="../_images/stop_button.png" />
+<figcaption>
+<p><span class="caption-text"><strong>STOP</strong> button</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="restart">
+<span id="mtree-container-restart"></span><h4>Restart<a class="headerlink" href="#restart" title="Permalink to this heading"></a></h4>
+<p>You can restart your container by pressing the <code class="docutils literal notranslate"><span class="pre">RESTART</span></code> button</p>
+<figure class="align-center" id="id10">
+<img alt="../_images/restart_button.png" src="../_images/restart_button.png" />
+<figcaption>
+<p><span class="caption-text"><strong>RESTART</strong> button</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="delete">
+<span id="mtree-container-delete"></span><h4>Delete<a class="headerlink" href="#delete" title="Permalink to this heading"></a></h4>
+<p>If you want to delete the image, you can press the <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> button</p>
+<figure class="align-center" id="id11">
+<img alt="../_images/delete_button.png" src="../_images/delete_button.png" />
+<figcaption>
+<p><span class="caption-text"><strong>DELETE</strong> button</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="open-shell">
+<span id="mtree-container-cli"></span><h4>Open Shell<a class="headerlink" href="#open-shell" title="Permalink to this heading"></a></h4>
+<p>Once your container is running, you should click <code class="docutils literal notranslate"><span class="pre">CLI</span></code> button to open the <strong>Command Prompt</strong>/ <strong>shell</strong>
+linked to your container.</p>
+<figure class="align-center" id="id12">
+<img alt="../_images/shell_button.png" src="../_images/shell_button.png" />
+<figcaption>
+<p><span class="caption-text"><strong>CLI</strong> button</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <strong>shell</strong> produced by <strong>Docker</strong> should look similar to the following -</p>
+<figure class="align-center" id="id13">
+<img alt="../_images/container_command_prompt.png" src="../_images/container_command_prompt.png" />
+<figcaption>
+<p><span class="caption-text"><strong>docker shell</strong></span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quickstart Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CEE Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #105a04;
+    }
+    /* Sidebar */
+    .wy-nav-side {
+      background: #105a04;
+    }
+  </style>
+
+
+</body>
+</html>

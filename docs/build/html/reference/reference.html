@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reference &mdash; mTree 1.2.1b documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="References Short" href="reference_short.html" />
+    <link rel="prev" title="Theory" href="mtree_theory.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> mTree
+          </a>
+              <div class="version">
+                1.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../start_here/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start_here/quick_start.html">Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mtree_theory.html">Theory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#theory-of-operations">Theory of Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#messages">messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-environment">start_environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-send-a-message">How to send a message</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#directives-receiving-messages">Directives / Receiving Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#actor-description">Actor Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#imports">Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#necessary-imports">Necessary Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-imports">Additional Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-methods-and-capabilities">General Methods and Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-name">short_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#institution">Institution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agent">Agent</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#config-folder">config folder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#config-file">config file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mtree-use">mTree use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#referencing-different-actors">Referencing different actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simulation-properties-self-get-properties">Simulation Properties/ self.get_properties()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#address-book">address book</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-access-the-address-book">How to access the address_book</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-get-addresses">self.address_book.get_addresses()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-merge-addresses-addresses">self.address_book.merge_addresses(addresses)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-get-agents">self.address_book.get_agents()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-get-institutions">self.address_book.get_institutions()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-num-agents">self.address_book.num_agents()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-num-institutions">self.address_book.num_institutions()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-select-addresses-selector">self.address_book.select_addresses(selector)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-address-book-broadcast-message-selector-message">self.address_book.broadcast_message(selector, message)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logs">Logs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#experiment-logging">Experiment Logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#self-log-message-content">self.log_message(content)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-file">Log File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-logging">Data Logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#self-log-data-content">self.log_data(content)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-file">Data File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpret-into-jupyter-notebook">Interpret into Jupyter notebook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#directive-name-error">Directive name error</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mtree-simulation-state">mTree Simulation State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference_short.html">References Short</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/contributor_guide.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html">Examples Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#tatonnement">Tatonnement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#sealed-bid-auction">Sealed Bid Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#ascending-price-auction">Ascending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#descending-price-auction">Descending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#common-value-auction">Common Value Auction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mTree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h1>
+<p>Several sections are under development…</p>
+<section id="theory-of-operations">
+<h2>Theory of Operations<a class="headerlink" href="#theory-of-operations" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Contains a description and background of Microeconomic Systems and how mTree allows you to define different actors</p></li>
+<li><p>Goes in depth as to why mTree.</p></li>
+<li><p>Need to define why messages are necessary</p></li>
+</ul>
+</section>
+<section id="messages">
+<span id="id1"></span><h2>messages<a class="headerlink" href="#messages" title="Permalink to this heading"></a></h2>
+<p>In the <span class="xref std std-ref">Actor</span> system, Actors only have access to their personal states. As a result,
+the only way Actors can change their state is through some constant design or by recieving new
+information from a different Actor.</p>
+<p>In <strong>mTree</strong>, Actors send <strong>messages</strong> using the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class which needs to be <span class="xref std std-ref">imported</span> at the top
+of each file that includes the code for your <strong>mTree</strong> <span class="xref std std-ref">Actor</span>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Message</span></code> class is used to create a <code class="docutils literal notranslate"><span class="pre">Message</span></code> object, which is then used to send a <strong>message</strong>
+to another Actor. The following code snippet shows how crafting and sending a basic <strong>message</strong> looks like.
+To know more about the neccessary contents of messages check out <span class="xref std std-ref">send_message</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">()</span> <span class="c1">#creates a message object</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_sender</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAddress</span><span class="p">)</span> <span class="c1">#self.myAddress is the agent&#39;s personal mTree Actor address</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_directive</span><span class="p">(</span><span class="s2">&quot;institution_message&quot;</span><span class="p">)</span> <span class="c1">#directives are used by message receiving agents to recieve specific messages</span>
+<span class="n">message_payload</span> <span class="o">=</span> <span class="s2">&quot;any_python_data_type_would_do&quot;</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="n">message_payload</span><span class="p">)</span> <span class="c1">#you can set the payload to any python data type</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">reciever_address</span><span class="p">,</span> <span class="n">new_message</span><span class="p">)</span> <span class="c1"># This method is used to finally send your message</span>
+</pre></div>
+</div>
+<section id="start-environment">
+<span id="id2"></span><h3>start_environment<a class="headerlink" href="#start-environment" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">start_environment</span></code> message is the very first message that gets sent by the <strong>mTree_runner</strong> to the <span class="xref std std-ref">environment</span> Actor (specified in the <span class="xref std std-ref">config</span> file)
+after <strong>mTree</strong> initializes everything.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#inside simulation_folder/mes/environment_file.py</span>
+
+<span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">EnvironmentClass</span><span class="p">(</span><span class="n">Environment</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;start_environment&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">start_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span><span class="n">Message</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">start_environment</span></code> directive can be viewed as the genisis message which gets the ball
+rolling for all other subsequent messages. Therefore, it is recommended that the directive is
+used to initialize the environment state as well as send important state information to other Actors.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All mTree simulation need to have a <code class="docutils literal notranslate"><span class="pre">start_environment</span></code> <span class="xref std std-ref">directive</span> specified in
+the Environment Actor in order to start their simulation. However, messages sent in the <code class="docutils literal notranslate"><span class="pre">start_environment</span></code>
+directive as well as other directives can be based on your design.</p>
+</div>
+</section>
+<section id="how-to-send-a-message">
+<span id="send-message"></span><h3>How to send a message<a class="headerlink" href="#how-to-send-a-message" title="Permalink to this heading"></a></h3>
+<p>In order to send a message, the Actor must first receive a message in a <span class="xref std std-ref">directive</span> first.
+Once in a <strong>directive</strong>, the key elements for a message are -</p>
+<ul class="simple">
+<li><p><strong>Sending Actor’s address</strong>: Usually accessed by <code class="code docutils literal notranslate"><span class="pre">self.myAddress</span></code></p></li>
+<li><p><strong>Content</strong>: This could be any python data type message (None types also work) that you want the other Actor to recieve.</p></li>
+<li><p><strong>Receiving Actor’s address</strong>: This could be accessed several ways, see code example in <span class="xref std std-ref">directive</span> or checkout <span class="xref std std-ref">address_book</span></p></li>
+</ul>
+<p>Here is how you can define and send a message-</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">()</span> <span class="c1">#creates a message object</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_sender</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAddress</span><span class="p">)</span> <span class="c1">#self.myAddress is the agent&#39;s personal mTree Actor address</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_directive</span><span class="p">(</span><span class="s2">&quot;institution_message&quot;</span><span class="p">)</span> <span class="c1">#directives are used by message receiving agents to recieve specific messages</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="s2">&quot;any_python_data_type_would_do&quot;</span><span class="p">)</span> <span class="c1">#you can set the payload to any python data type</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">reciever_address</span><span class="p">,</span> <span class="n">new_message</span><span class="p">)</span> <span class="c1"># This method is used to finally send your message</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">In the example below, we continue the <code class="docutils literal notranslate"><span class="pre">start_messsage</span></code> directive method in the Environment and send a message</div>
+<div class="line">to the Institution.</div>
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">EnvironmentClass</span><span class="p">(</span><span class="n">Environment</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;start_environment&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">start_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span><span class="n">Message</span><span class="p">):</span>
+
+        <span class="n">your_message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">()</span> <span class="c1">#create a message object</span>
+        <span class="n">your_message</span><span class="o">.</span><span class="n">set_sender</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAddress</span><span class="p">)</span> <span class="c1">#self.myAddress is the agent&#39;s personal mTree Actor address</span>
+        <span class="n">your_message</span><span class="o">.</span><span class="n">set_directive</span><span class="p">(</span><span class="s2">&quot;institution_message&quot;</span><span class="p">)</span> <span class="c1">#directives are used by message receiving agents to recieve specific messages</span>
+        <span class="n">your_message</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="s2">&quot;any_python_data_type_would_do&quot;</span><span class="p">)</span> <span class="c1">#you can set the payload to any python data type</span>
+
+        <span class="c1">#checkout the &lt;address_book&gt; section in References to find how different Actors access each other&#39;s addresses</span>
+        <span class="n">receiver_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">select_addresses</span><span class="p">({</span><span class="s2">&quot;short_name&quot;</span><span class="p">:</span><span class="s2">&quot;institution_file.InstitutionClass 1&quot;</span><span class="p">})</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">receiver_address</span><span class="p">,</span> <span class="n">your_message</span><span class="p">)</span> <span class="c1"># This method is used to finally send your message</span>
+</pre></div>
+</div>
+<section id="directives-receiving-messages">
+<span id="directive"></span><h4>Directives / Receiving Messages<a class="headerlink" href="#directives-receiving-messages" title="Permalink to this heading"></a></h4>
+<p><strong>Directives</strong> are special class methods defined in Actor classes (contained in .py files inside your <strong>mes</strong> folder).
+They are used to view messages sent to the Actor.</p>
+<div class="line-block">
+<div class="line">Actors need to have the following in their classes to recieve a particular message.</div>
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;directive_name&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">directive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+
+    <span class="n">message_payload</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_payload</span><span class="p">()</span> <span class="c1">#accesses the message payload</span>
+    <span class="n">message_sender_address</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_sender</span><span class="p">()</span> <span class="c1">#access the sender agent&#39;s address</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In order to recieve a messsage your directive name and your method name need to be the same, otherwise,
+mTree throws the following <span class="xref std std-ref">error</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the following example our Actor is set as the <span class="xref std std-ref">Institution</span> type, however, the message receiving process is applicable
+for any type.</p>
+</div>
+<div class="line-block">
+<div class="line">In this example below, the institution receives a message sent by the Environment in <span class="xref std std-ref">send message</span>.</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">InstitutionClass</span><span class="p">(</span><span class="n">Institution</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;institution_message&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">institution_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span><span class="n">Message</span><span class="p">):</span><span class="c1">#The method name needs to be the same as the directive name set in quotes above</span>
+
+        <span class="n">message_payload</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_payload</span><span class="p">()</span> <span class="c1">#accesses the message payload</span>
+        <span class="n">message_sender_address</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_sender</span><span class="p">()</span> <span class="c1">#access the sender agent&#39;s address</span>
+
+        <span class="c1">#You can find more on logging in the &lt;logs&gt; section in References</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;message_payload = </span><span class="si">{</span><span class="n">message_payload</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;message_sender_address = </span><span class="si">{</span><span class="n">message_sender_address</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Your <span class="xref std std-ref">log</span> file should produce the following output -</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="mi">1645122024</span><span class="o">.</span><span class="mi">0900638</span><span class="w">  </span><span class="n">message_payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">any_python_data_type_would_do</span>
+
+<span class="mi">1645122024</span><span class="o">.</span><span class="mi">0937853</span><span class="w">  </span><span class="n">message_sender_address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ActorAddr</span><span class="o">-</span><span class="p">(</span><span class="n">T</span><span class="o">|</span><span class="p">:</span><span class="mi">43253</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="actor-description">
+<span id="actors"></span><h2>Actor Description<a class="headerlink" href="#actor-description" title="Permalink to this heading"></a></h2>
+<section id="imports">
+<h3>Imports<a class="headerlink" href="#imports" title="Permalink to this heading"></a></h3>
+<p>While coding <strong>mTree</strong> Actors, there are several features that <strong>mTree</strong> provides Actor classes the ability to interact with
+within the Actor world.</p>
+</section>
+<section id="necessary-imports">
+<span id="id3"></span><h3>Necessary Imports<a class="headerlink" href="#necessary-imports" title="Permalink to this heading"></a></h3>
+<p>Each file that contains the code for your mTree Actors (Environment/Institution/Agent)
+<strong>needs</strong> to have the following imports in order to work properly.
+These imports provide the Actors with a range of capabilities including but not limited to communicating via messages.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mTree.microeconomic_system.environment</span> <span class="kn">import</span> <span class="n">Environment</span> <span class="c1">#Parent class for Environment Actors</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.institution</span> <span class="kn">import</span> <span class="n">Institution</span> <span class="c1">#Parent class for Institutoin Actors</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.agent</span> <span class="kn">import</span> <span class="n">Agent</span> <span class="c1">#Parent class for Agent Actors</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.directive_decorators</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.message</span> <span class="kn">import</span> <span class="n">Message</span> <span class="c1">#Message class allows you to create and send messages</span>
+<span class="kn">import</span> <span class="nn">logging</span> <span class="c1">#Allows you to log messages to log files</span>
+</pre></div>
+</div>
+</section>
+<section id="additional-imports">
+<h3>Additional Imports<a class="headerlink" href="#additional-imports" title="Permalink to this heading"></a></h3>
+<p><strong>mTree</strong> also provides the following additional imports when running <strong>mTree</strong> in a container.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
+</pre></div>
+</div>
+</section>
+<section id="general-methods-and-capabilities">
+<h3>General Methods and Capabilities<a class="headerlink" href="#general-methods-and-capabilities" title="Permalink to this heading"></a></h3>
+<p>Each Actor comes with a general set of capabilities, often represented in the form of class variables and methods
+available to the Actor. On top of that, there are Actor specific class variables and methods that <strong>mTree</strong> reserves
+for the <strong>Environment Actor</strong>, which might not be available to <strong>Institution</strong> and <strong>Agent Actors</strong>. Some of these methods
+have individual sections such as <strong>Message Sending</strong>, <strong>address_boook</strong>, and <strong>logging</strong>, however, some Actor specific methods
+have been listed under the different Actor sections.</p>
+<p>The four main capabilities have been listed below -</p>
+<ol class="arabic simple">
+<li><p><span class="xref std std-ref">Message Sending</span>- covers how and what Actors can send to each other</p></li>
+<li><p><span class="xref std std-ref">Address Book</span>- covers how to keep track of other Actor’s address(without which you can’t send messages)</p></li>
+<li><p><span class="xref std std-ref">Logging</span>- covers how to output interactions taking place inside a simulation</p></li>
+<li><p><span class="xref std std-ref">short_name</span>- unique identifier of the Actor, used to navigate the <strong>address_book</strong> and keep track of Actors.</p></li>
+</ol>
+</section>
+<section id="short-name">
+<span id="id4"></span><h3>short_name<a class="headerlink" href="#short-name" title="Permalink to this heading"></a></h3>
+<p>The <strong>short_name</strong> is a simple unique identifier created by <strong>mTree</strong> for each Actor within the system. The <strong>short_name</strong>
+can be used for identifying which Actor <span class="xref std std-ref">logged the data</span> as well as for navigating the <span class="xref std std-ref">address_book</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>short_name</strong> was created to distinguish between multiple instances of the same <strong>Actor Class</strong> (an example of
+an Actor Class can be <strong>InstitutionClass</strong> from the message sending example above). Therefore,
+currently <code class="docutils literal notranslate"><span class="pre">self.short_name</span></code> is not accessible to the <strong>Environment Actor</strong> because there can only be one
+and doesn’t need distinguising. However, newer versions of <strong>mTree</strong> plan on instilling <strong>short_name</strong> identifier in all
+Actors for uniformity purposes.</p>
+</div>
+<p>The Actors can access their individual <strong>short_name</strong> the following way -</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">short_name</span> <span class="c1">#since it is a class variable, it can be called anywhere in the Actor class</span>
+</pre></div>
+</div>
+<p>if we use the <span class="xref std std-ref">log_message</span> method to log this variable we should observe the following output -</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">short_name</span><span class="p">)</span> <span class="c1">#more about this method can be found in the log_message section</span>
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<figure class="align-center" id="id18">
+<img alt="../_images/reference_short_name_agent.png" src="../_images/reference_short_name_agent.png" />
+<figcaption>
+<p><span class="caption-text">If you log the <code class="docutils literal notranslate"><span class="pre">self.short_name</span></code> in an <em>Agent Actor</em> you would can see any one of the following
+outputs.</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id19">
+<img alt="../_images/reference_short_name_institution.png" src="../_images/reference_short_name_institution.png" />
+<figcaption>
+<p><span class="caption-text">If you log the <code class="docutils literal notranslate"><span class="pre">self.short_name</span></code> in an <em>Institution Actor</em> you would can see any one of the following
+outputs.</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <strong>short_name</strong> can identify where the Actor code is located in the <strong>mes</strong> folder, which <strong>Actor Class</strong> within
+that file was used to create the Actor, and, finally, which instance of the <strong>Actor Class</strong> is the current Actor.
+The last part is useful because there can be multiple instances of the same <strong>Actor Class</strong> and the <strong>short_name</strong> allows
+use to differentiate among them.</p>
+</section>
+<section id="environment">
+<span id="id5"></span><h3>Environment<a class="headerlink" href="#environment" title="Permalink to this heading"></a></h3>
+<p>Here is a code snippet that you can modify to construct your <strong>mTree</strong> <code class="docutils literal notranslate"><span class="pre">Environment</span></code> Actor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#NOTE: this python file needs to be inside the /mes folder</span>
+
+<span class="c1">#These imports can also be found in the Imports section above</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.environment</span> <span class="kn">import</span> <span class="n">Environment</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.institution</span> <span class="kn">import</span> <span class="n">Institution</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.agent</span> <span class="kn">import</span> <span class="n">Agent</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.directive_decorators</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.message</span> <span class="kn">import</span> <span class="n">Message</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1">#In the config, the class below</span>
+<span class="c1">#should be referenced as  &quot;&lt;.py filename&gt;.EnvironmentClass&quot;,</span>
+<span class="c1">#Example -  environment_file.InstitutionClass (assuming the filename is set to environment_file.py)</span>
+<span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">EnvironmentClass</span><span class="p">(</span><span class="n">Environment</span><span class="p">):</span> <span class="c1">#you can change the class name to anything, as long as the parent class (Environment) stays same</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;start_environment&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">start_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span> <span class="c1"># The first message sent by mTree_runner, check messages section to find out more</span>
+
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can change the class name of the above Actor <code class="docutils literal notranslate"><span class="pre">EnvironmnetClass</span></code> to anything as long as
+the parent class <code class="docutils literal notranslate"><span class="pre">Environment</span></code> stays the same.</p>
+</div>
+</section>
+<section id="institution">
+<span id="id6"></span><h3>Institution<a class="headerlink" href="#institution" title="Permalink to this heading"></a></h3>
+<p>Here is a code snippet that you can modify to construct your <strong>mTree</strong> <code class="docutils literal notranslate"><span class="pre">Institution</span></code> Actor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#NOTE: this python file needs to be inside the /mes folder</span>
+
+<span class="c1">#These imports can also be found in the Imports section above</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.environment</span> <span class="kn">import</span> <span class="n">Environment</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.institution</span> <span class="kn">import</span> <span class="n">Institution</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.agent</span> <span class="kn">import</span> <span class="n">Agent</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.directive_decorators</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.message</span> <span class="kn">import</span> <span class="n">Message</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1">#In the config, the class below</span>
+<span class="c1">#should be referenced as  &quot;&lt;.py filename&gt;.InstitutionClass&quot;,</span>
+<span class="c1">#Example -  institution_file.InstitutionClass (assuming the filename is set to institution_file.py)</span>
+<span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">InstitutionClass</span><span class="p">(</span><span class="n">Institution</span><span class="p">):</span> <span class="c1">#you can change the class name to anything, as long as the parent class (Institution) stays same</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can change the class name of the above Actor <code class="docutils literal notranslate"><span class="pre">InstitutionClass</span></code> to anything as long as
+the parent class <code class="docutils literal notranslate"><span class="pre">Institution</span></code> stays the same.</p>
+</div>
+</section>
+<section id="agent">
+<span id="id7"></span><h3>Agent<a class="headerlink" href="#agent" title="Permalink to this heading"></a></h3>
+<p>Here is a code snippet that you can modify to construct your <strong>mTree</strong> <code class="docutils literal notranslate"><span class="pre">Agent</span></code> Actor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#NOTE: this python file needs to be inside the /mes folder</span>
+
+<span class="c1">#These imports can also be found in the Imports section above</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.environment</span> <span class="kn">import</span> <span class="n">Environment</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.institution</span> <span class="kn">import</span> <span class="n">Institution</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.agent</span> <span class="kn">import</span> <span class="n">Agent</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.directive_decorators</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.message</span> <span class="kn">import</span> <span class="n">Message</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+
+<span class="c1">#In the config, the class below</span>
+<span class="c1">#should be referenced as &quot;&lt;.py filename&gt;.AgentClass&quot; ,</span>
+<span class="c1">#Example -  &quot;institution_file.InstitutionClass&quot; (assuming the filename is set to institution_file.py)</span>
+<span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">AgentClass</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>  <span class="c1">#you can change the class name to anything, as long as the parent class (Agent) stays same</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can change the class name of the above Actor <code class="docutils literal notranslate"><span class="pre">AgentClass</span></code> to anything as long as
+the parent class <code class="docutils literal notranslate"><span class="pre">Agent</span></code> stays the same.</p>
+</div>
+</section>
+</section>
+<section id="config-folder">
+<span id="config"></span><h2>config folder<a class="headerlink" href="#config-folder" title="Permalink to this heading"></a></h2>
+<p>There needs to be a  <strong>config</strong> folder inside each <strong>mTree simulation folder</strong>. Within the <strong>config</strong> folder there needs to
+be a <strong>.json</strong> file that contains your simulation configurations. Although, the name of the <strong>config</strong> folder cannot be changed, nevertheless,
+your <strong>.json</strong> config file, can have any name.</p>
+<section id="config-file">
+<span id="id8"></span><h3>config file<a class="headerlink" href="#config-file" title="Permalink to this heading"></a></h3>
+<p>Your config file is a <strong>.json</strong> file containing a <strong>json dictionary</strong>. Inside this <strong>json dictionary</strong> we define the
+key parameters that <strong>mTree</strong> uses to instantiate the various <span class="xref std std-ref">Actors</span> as well as any simulation specific
+variables that our Actors might need.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;mtree_type&quot;</span><span class="p">:</span> <span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Basic Simulation Run&quot;</span><span class="p">,</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="s2">&quot;environment&quot;</span><span class="p">:</span> <span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;institution_file.InstitutionClass&quot;</span><span class="p">,</span>
+<span class="s2">&quot;number_of_runs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;data_logging&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<span class="s2">&quot;agents&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;agent_name&quot;</span><span class="p">:</span> <span class="s2">&quot;agent_file.AgentClass&quot;</span><span class="p">,</span> <span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}],</span>
+<span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;this_a_property&quot;</span><span class="p">:</span><span class="s2">&quot;this_is_a_property&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="mtree-use">
+<h4>mTree use<a class="headerlink" href="#mtree-use" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;mtree_type&quot;</span><span class="p">:</span> <span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;any name should do&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>Although, the first three keys are used by <strong>mTree</strong> on a systemic level, however, even if you don’t include
+the three keys, <strong>mTree</strong> assigns default values for them. More importantly, it is still highly recommended that you
+pass some values for them, even the ones suggested above.</p>
+</section>
+<section id="referencing-different-actors">
+<h4>Referencing different actors<a class="headerlink" href="#referencing-different-actors" title="Permalink to this heading"></a></h4>
+<p>Within the <strong>config file</strong> we inform <strong>mTree</strong> which code we want to use to spawn Actors.</p>
+<figure class="align-center" id="id20">
+<img alt="../_images/reference_config_referencing.png" src="../_images/reference_config_referencing.png" />
+<figcaption>
+<p><span class="caption-text">The figure shows how an Environmnet Actor(EnvironmentClass) is referenced within a config file.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id9">
+<h5>Environment<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h5>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>After selecting and running a <strong>config file</strong>, the <strong>mTree_runner</strong> looks for the <strong>Environment Actor</strong> code
+inside the <strong>mes</strong> folder. The value of the <code class="docutils literal notranslate"><span class="pre">&quot;environment&quot;</span></code> key - “environment_file.EnvironmentClass” informs <strong>mTree</strong>
+to spawn the <strong>Environment Actor</strong> using the <em>EnvironmentClass</em> class present inside the <em>environment_file.py</em> file, which
+in turn should be located inside the <strong>mes</strong> folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <strong>Institutions</strong> and <strong>agents</strong>, <strong>mTree</strong> only allows for a single <strong>Environment</strong> per simulation.
+Also, each simulation <strong>needs</strong> to have an <strong>Environment Actor</strong> because the very first message that gets
+sent by the system is the <code class="docutils literal notranslate"><span class="pre">start_environment</span></code> message.</p>
+</div>
+</section>
+<section id="id10">
+<h5>Institution<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h5>
+<p><strong>Single Instance</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institutin_file.InstitutionClass&quot;</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>After selecting and running a <strong>config file</strong>, the <strong>mTree_runner</strong> looks for the <strong>Institution Actor(s)</strong> code
+inside the <strong>mes</strong> folder. The value of the <code class="docutils literal notranslate"><span class="pre">&quot;institution&quot;</span></code> key - “institution_file.InstitutionClass” informs <strong>mTree</strong>
+to spawn the <strong>Institution Actor(s)</strong> using the <em>InstitutionClass</em> class present inside the <em>institution_file.py</em> file
+inside the <strong>mes</strong> folder.</p>
+<p><strong>Multiple Instances</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;institutions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institution_file.InstitutionClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}]</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>For multiple instances of the same <strong>InstitutionClass</strong> Actor we use the above format where
+the key changes from <code class="docutils literal notranslate"><span class="pre">&quot;institution&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;institutions&quot;</span></code>, and the corresponding value is a list of
+dictionaries. Within the institution dictionary, the value of the <code class="docutils literal notranslate"><span class="pre">&quot;institution&quot;</span></code> key specifies
+where the <strong>Institution Actor</strong> code is and the value of the <code class="docutils literal notranslate"><span class="pre">&quot;number&quot;</span></code> key specifies - how many to spawn.</p>
+<p>To sum it all up, the above code should create 2 Institution Actors using the same code present
+inside mes/institution_file.py with the class name - InstitutionClass.</p>
+<p><strong>Multiple Institutions</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;institutions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institution_file.InstitutionClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">                 </span><span class="p">{</span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institution_file.DifferentInstitutionClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">&quot;institutions&quot;</span></code> key has a list as its corresponding value. Inside this list,
+you can insert the different types of <strong>Institution Actor</strong> you want to create as separate dictionaries.
+This is useful if you have two separate coded institution classes that serve different roles
+in your microeconomic system.</p>
+<p>You can also control the number of instances of each particular <strong>Institution Actor</strong> using the
+<code class="docutils literal notranslate"><span class="pre">&quot;number&quot;</span></code> key.</p>
+</section>
+<section id="agents">
+<h5>Agents<a class="headerlink" href="#agents" title="Permalink to this heading"></a></h5>
+<p>The reference for <strong>Agents</strong> works exactly like references for <strong>Institutions</strong>.</p>
+<p><strong>Single Instances</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institutin_file.InstitutionClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent_file.AgentClass&quot;</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>After selecting and running a <strong>config file</strong>, the <strong>mTree_runner</strong> looks for the <strong>Agent Actor(s)</strong> code
+inside the <strong>mes</strong> folder. The value of the <code class="docutils literal notranslate"><span class="pre">&quot;agent&quot;</span></code> key - “agent_file.AgentClass” informs <strong>mTree</strong>
+to spawn the <strong>Agent Actor(s)</strong> using the <em>AgentClass</em> class present inside the <em>agent_file.py</em> file
+inside the <strong>mes</strong> folder.</p>
+<p><strong>Multiple Instances</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institutin_file.InstitutionClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent_file.AgentClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}]</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>For multiple instances of the same <strong>AgentClass</strong> Actor we use the above format where
+the key changes from <code class="docutils literal notranslate"><span class="pre">&quot;agent&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;agents&quot;</span></code>, and the corresponding value is a list of
+dictionaries. Within the agent dictionary, the value of the <code class="docutils literal notranslate"><span class="pre">&quot;agent&quot;</span></code> key specifies
+where the <strong>Agent Actor</strong> code is and the value of the <code class="docutils literal notranslate"><span class="pre">&quot;number&quot;</span></code> key specifies - how many to spawn.</p>
+<p>To sum it all up, the above code should create 2 Agent Actors using the same code present
+inside mes/agent_file.py with the class name - AgentClass.</p>
+<p><strong>Multiple Agents</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institutin_file.InstitutionClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent_file.AgentClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">                 </span><span class="p">{</span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent_file.DifferentAgentClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">&quot;agents&quot;</span></code> key has a list as its corresponding value. Inside this list,
+you can insert the different types of <strong>Agent Actor</strong> you want to create as separate dictionaries.
+This is useful if you have two separate coded agent classes that serve different roles
+in your microeconomic system.</p>
+<p>You can also control the number of instances of each particular <strong>Agent Actor</strong> using the
+<code class="docutils literal notranslate"><span class="pre">&quot;number&quot;</span></code> key.</p>
+</section>
+</section>
+<section id="simulation-properties-self-get-properties">
+<h4>Simulation Properties/ self.get_properties()<a class="headerlink" href="#simulation-properties-self-get-properties" title="Permalink to this heading"></a></h4>
+<p>Users are allowed to specify additional information to the <code class="docutils literal notranslate"><span class="pre">&quot;properties&quot;</span></code> dictionary. This dictionary is
+reserved for including information that is simulation specific and can be used to initialize different
+agent types, initialize different institutions, and much more. Check out one of the <span class="xref std std-doc">learning_paths</span>
+to view how properties can be used to prevent hard coding Actors.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;mtree_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mes_simulation_description&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Basic Simulation&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;environment_file.EnvironmentClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;institutin_file.InstitutionClass&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent_file.AgentClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">                 </span><span class="p">{</span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent_file.DifferentAgentClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}],</span>
+<span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;agent_types&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;buyer&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;seller&quot;</span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;agent_endowment&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;institution_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sealed_bid_auction&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;common_value&quot;</span><span class="p">]</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="accessing-properties">
+<h5>Accessing Properties<a class="headerlink" href="#accessing-properties" title="Permalink to this heading"></a></h5>
+<p>Information mentioned in the <code class="docutils literal notranslate"><span class="pre">&quot;properties&quot;</span></code> dictionary can be accessed by the <strong>Environment</strong> Actor using
+the following code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">get_properties</span><span class="p">()</span> <span class="c1"># this should return the entire properties dictionary.</span>
+</pre></div>
+</div>
+<p><strong>Example</strong></p>
+<p>If we wanted to access the properties mentioned above, we could use the following code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">agent_type_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_properties</span><span class="p">()[</span><span class="s2">&quot;agent_types&quot;</span><span class="p">]</span> <span class="c1">#list, accessing the different agent types in the system</span>
+<span class="n">agent_endowment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_properties</span><span class="p">()[</span><span class="s1">&#39;agent_endowment&#39;</span><span class="p">]</span> <span class="c1">#int, accesing the agent endowment</span>
+<span class="n">institution_type_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_properties</span><span class="p">()[</span><span class="s1">&#39;institution_type&#39;</span><span class="p">]</span> <span class="c1">#list, institution_type_list</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the <strong>Environment</strong> Actor has access to the <code class="docutils literal notranslate"><span class="pre">self.get_properties()</span></code> method and can choose to pass relevant
+information (defined in the config) regarding the an Actor’s initial states to them.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="address-book">
+<span id="id11"></span><h2>address book<a class="headerlink" href="#address-book" title="Permalink to this heading"></a></h2>
+<p>The <strong>address_book</strong> is an <strong>mTree</strong> object that stores and manages addresses of all the Actors
+that are initialized in the <span class="xref std std-ref">config</span> file. Each Actor in the system has an <strong>address_book</strong> object
+instantiated when they are spawned. However, at the beginning, only the <span class="xref std std-ref">Environment</span> Actor’s <strong>address_book</strong>
+has the complete list of Actor addresses in the system.</p>
+<p>The <strong>Environment Actor</strong> can then choose to pass the addresses to different <strong>Institution</strong> and <strong>Agent</strong> Actors
+across the system. We have listed below the different methods that this <strong>address_book</strong> object has and how to
+access them.</p>
+<section id="how-to-access-the-address-book">
+<span id="access-address-book"></span><h3>How to access the address_book<a class="headerlink" href="#how-to-access-the-address-book" title="Permalink to this heading"></a></h3>
+<p>The <strong>address_book</strong> object can be accessed by the Actors in the following ways</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">self.address_book</span></code> is a class variable that gets set by <strong>mTree</strong> for each Actor prior to
+sending the <span class="xref std std-ref">start_environment</span> directive message and points to the Actor’s own <strong>address_book</strong> object.
+Since <code class="docutils literal notranslate"><span class="pre">self.address_book</span></code> is a class variable, it can be accessed everywhere.</p>
+</section>
+<section id="structure">
+<span id="address-book-structure"></span><h3>Structure<a class="headerlink" href="#structure" title="Permalink to this heading"></a></h3>
+<p>Below we evaluate one of the key <strong>address_book</strong> methods and explore how addresses are stored.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_addresses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_addresses</span><span class="p">()</span> <span class="c1">#This code should return a dictionary of the following format</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">all_addresses</span><span class="p">)</span> <span class="c1">#since mTree suppresses print statements, logging is the only way to get info out</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#The above message should output the following dictionary</span>
+<span class="c1">#Notice all the keys are the different actor&#39;s short_names and the value of each</span>
+<span class="c1">#key is another dictionary containing other important distinguishing information about the Actor</span>
+    <span class="p">{</span><span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;institution&#39;</span><span class="p">,</span> <span class="c1">#The Actor&#39;s type</span>
+                                            <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401aff5c70</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">#The Actor&#39;s address</span>
+                                            <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass&#39;</span><span class="p">,</span> <span class="c1">#Where the code for ActorClass is located</span>
+                                            <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">#instance number of the Actor</span>
+                                            <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">},</span> <span class="c1">#Actor short_name</span>
+    <span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401b0002e0</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401b000460</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;agent_file.AgentClass 3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401b0004f0</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                                <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 3&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;agent_file.AgentClass 4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401b000580</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                                <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 4&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;agent_file.AgentClass 5&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401b000610</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                                <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 5&#39;</span><span class="p">}</span>
+                                <span class="p">}</span>
+</pre></div>
+</div>
+<p>We are going to evaluate a single entry in this <strong>address_book</strong> dictionary and explore what each information
+means in the figure below.</p>
+<figure class="align-center" id="id21">
+<img alt="../_images/reference_address_book_dict.png" src="../_images/reference_address_book_dict.png" />
+<figcaption>
+<p><span class="caption-text">More about <strong>short_name</strong> can be found in the <span class="xref std std-ref">short_name</span> section.</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the rest of the <strong>address_book</strong> section, we will refer to keys in the dictionary
+above as <strong>entries</strong> and their corresponding value, which is another dictionary, as the
+<strong>description dictionary</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently all Actor Instances except the <strong>Environment Actor</strong> have an entry in the <strong>address_book</strong>. As a result,
+the only way to get the <strong>Environment Actor’s</strong> address is to receive a message from it and
+access the <strong>address</strong> using <code class="docutils literal notranslate"><span class="pre">message.get_sender()</span></code> method inside the <strong>directive</strong> you receive a message from the
+<strong>Environment Actor</strong>.</p>
+</div>
+</section>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h3>
+<p>The <strong>address_book</strong> object provides several methods.</p>
+<section id="self-address-book-get-addresses">
+<span id="get-addresses"></span><h4>self.address_book.get_addresses()<a class="headerlink" href="#self-address-book-get-addresses" title="Permalink to this heading"></a></h4>
+<p>The following returns a dictionary with all <strong>address_book</strong> elements exactly like the one explored in <span class="xref std std-ref">address_book_structure</span> section
+above.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_addresses</span><span class="p">()</span> <span class="c1">#This code should return a dictionary of the following format</span>
+
+<span class="c1">#the get_addresses() method returns all the elements stored in the .addresses variable inside the address_book object</span>
+<span class="c1">#another way to access the same dictionary can be</span>
+<span class="c1">#self.address_book.addresses</span>
+</pre></div>
+</div>
+</section>
+<section id="self-address-book-merge-addresses-addresses">
+<span id="merge-addresses"></span><h4>self.address_book.merge_addresses(addresses)<a class="headerlink" href="#self-address-book-merge-addresses-addresses" title="Permalink to this heading"></a></h4>
+<p>This method allows you to merge your <strong>address_book</strong> with another <strong>address_book</strong>. The goal of this
+method is to append your personal <strong>address_book</strong> using the <strong>addresses</strong> provided as input.</p>
+<p><strong>Input: dict</strong></p>
+<p>The <strong>addresses</strong> argument in <code class="docutils literal notranslate"><span class="pre">self.address_book.merge_addresses(addresses)</span></code> needs follow the <strong>address_book</strong>
+dictionary structure as shown in the <span class="xref std std-ref">address_book_structure</span> section.</p>
+<p><strong>Output: None</strong></p>
+<p>Although,``self.address_book.merge_addresses(addresses`` method does not return anything, nevertheless, it updates
+the Actor’s personal <strong>address_book</strong> object to include the new <strong>entries</strong> mentioned in the <strong>addresses</strong> input dictionary.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since, at first, only the <strong>Environment</strong> Actor has a complete <strong>address_book</strong> with <strong>entries</strong>
+of all the <strong>Actors</strong> in the system. Consequentially,  the <strong>Environment</strong> can access the <strong>address_book dictionary</strong>
+using <span class="xref std std-ref">get_addresses</span> and pass this to other Actors
+by setting it as the <span class="xref std std-ref">message</span> <strong>payload</strong>. The Actor receiving the
+<strong>address_book dictionary</strong> can then add those addresses to its personal
+<strong>address_book</strong> using <code class="docutils literal notranslate"><span class="pre">self.address_book.merge_addresses(address_book_dictionary)</span></code></p>
+</div>
+<p><strong>Example: Environment sends Institution the address_book</strong></p>
+</section>
+<section id="self-address-book-get-agents">
+<span id="get-agents"></span><h4>self.address_book.get_agents()<a class="headerlink" href="#self-address-book-get-agents" title="Permalink to this heading"></a></h4>
+<p>The following returns a dictionary similar to the one in <code class="docutils literal notranslate"><span class="pre">self.address_book.get_addresses()</span></code>, however,
+only includes <strong>entries</strong> whose <strong>description dictionary</strong> <strong>“address_type”</strong> key has the value - <strong>“agent”</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_agents</span><span class="p">()</span><span class="c1">#Only returns the addresses of Agent Actors</span>
+</pre></div>
+</div>
+<p><strong>Output: float</strong></p>
+<p>The code above should return the following dictionary -</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span>  <span class="c1"># all elements are &#39;agents&#39;</span>
+                             <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401b0002e0</span><span class="o">&gt;</span><span class="p">,</span>
+                             <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                             <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">},</span>
+<span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401b000460</span><span class="o">&gt;</span><span class="p">,</span>
+                            <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                            <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">},</span>
+
+                            <span class="o">...</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="self-address-book-get-institutions">
+<span id="get-institutions"></span><h4>self.address_book.get_institutions()<a class="headerlink" href="#self-address-book-get-institutions" title="Permalink to this heading"></a></h4>
+<p>The following returns a dictionary similar to the one in <code class="docutils literal notranslate"><span class="pre">self.address_book.get_addresses()</span></code>, however,
+only includes entries whose <strong>“address_type”</strong> key has the value - <strong>“institution”</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_institutions</span><span class="p">()</span><span class="c1">#Only returns the addresses of Agent Actors</span>
+</pre></div>
+</div>
+<p><strong>Output: dict</strong></p>
+<p>The code above should return the following dictionary</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;institution&#39;</span><span class="p">,</span>
+                                         <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x401aff5c70</span><span class="o">&gt;</span><span class="p">,</span>
+                                         <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass&#39;</span><span class="p">,</span>
+                                         <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                                         <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">},</span>
+                                         <span class="o">...</span>
+                                         <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="self-address-book-num-agents">
+<span id="num-agents"></span><h4>self.address_book.num_agents()<a class="headerlink" href="#self-address-book-num-agents" title="Permalink to this heading"></a></h4>
+<p>The following sums up the number of entries with <code class="docutils literal notranslate"><span class="pre">{&quot;address_type&quot;:&quot;agent&quot;}</span></code> in their
+description. So if there are 5 Agent Actors in our simulation, the following code should
+output-</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">num_agents</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Output: float</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+</pre></div>
+</div>
+</section>
+<section id="self-address-book-num-institutions">
+<span id="num-institutions"></span><h4>self.address_book.num_institutions()<a class="headerlink" href="#self-address-book-num-institutions" title="Permalink to this heading"></a></h4>
+<p>The following sums up the number of entries with <code class="docutils literal notranslate"><span class="pre">{&quot;address_type&quot;:&quot;institution&quot;}</span></code> in their description.
+So if there is a single <strong>Institution Actor</strong> in our simulation, the following code should
+output-</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">num_institutions</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Output: float</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="self-address-book-select-addresses-selector">
+<span id="select-addresses"></span><h4>self.address_book.select_addresses(selector)<a class="headerlink" href="#self-address-book-select-addresses-selector" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">self.address_book.select_addresses(selector)</span></code> outputs a list of <strong>mTree addresses</strong>
+based on the <strong>selector</strong> that is provided.</p>
+<p><strong>Input: selector(dict)</strong></p>
+<p>The <strong>selector</strong> is a dictionary that can only have one of the following key and value pairs.</p>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Selector</span><a class="headerlink" href="#id22" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>key</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>“address_type”</p></td>
+<td><p>“agent”/”institution”</p></td>
+</tr>
+<tr class="row-odd"><td><p>“short_name”</p></td>
+<td><p>“file_name.ActorClass instance(int)”</p></td>
+</tr>
+</tbody>
+</table>
+<p>The purpose of the <strong>selector</strong> is to help <strong>address_book</strong> object select specific
+<strong>mTree addresses</strong> from the <strong>entries</strong> that have the same <strong>value</strong> as the <strong>selector</strong> inside their
+description dictionaries.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#address_type selectors</span>
+<span class="n">agent_addresses_selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;address_type&quot;</span><span class="p">:</span> <span class="s2">&quot;agent&quot;</span><span class="p">}</span>
+<span class="n">institution_address_selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;address_type&quot;</span><span class="p">:</span> <span class="s2">&quot;institution&quot;</span><span class="p">}</span>
+
+<span class="c1">#short_name selectors</span>
+<span class="n">agent_short_name_selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;short_name&quot;</span><span class="p">:</span> <span class="s2">&quot;agent_file.AgentClass 1&quot;</span><span class="p">}</span>
+
+<span class="c1">#if you pass any of these as an input to</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">select_addresses</span><span class="p">(</span><span class="n">agent_addresses_selector</span><span class="p">)</span>
+<span class="c1">#the above code would output either a list of addresses or a single address</span>
+</pre></div>
+</div>
+<p><strong>Output: list or address</strong></p>
+<p>Depending on the number of <strong>entries</strong> in the <strong>address_book</strong> that agree with the <strong>selector</strong>, <code class="docutils literal notranslate"><span class="pre">self.address_book.select_addresses(selector)</span></code> returns
+either a list of <strong>mTree_addresses</strong> or a single <strong>mTree_address</strong>.</p>
+<p><strong>Example: List of Addresses Returned</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#we want to select all mTree Actor addresses of those that have &quot;address_type&quot; as &quot;agent&quot; in their</span>
+<span class="c1">#description dictionaries</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;address_type&quot;</span><span class="p">:</span> <span class="s2">&quot;agent&quot;</span><span class="p">}</span> <span class="c1">#we create a selector dictionary</span>
+<span class="n">agent_addresses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">select_addresses</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">agent_addresses</span><span class="p">)</span> <span class="c1">#more about self.log_message can be found in the self.log_message section</span>
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Assuming we use the same config for all examples</span>
+<span class="c1">#the above code should produce a similar list in the log file</span>
+<span class="c1">#since we are using a config file with 5 Agent Actors, we get a list with 5 elements</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x40180f5a30</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x40180f5cd0</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x40180f6e80</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x40180f6e20</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x40180f6d90</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example: Single Address Returned</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#we want to select all mTree Actor addresses of those that have &quot;address_type&quot; as &quot;institution&quot; in their</span>
+<span class="c1">#description dictionaries</span>
+<span class="c1">#since we are using a config file with 1 Institution Actor, we get a single address returned</span>
+
+<span class="n">selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;address_type&quot;</span><span class="p">:</span> <span class="s2">&quot;institution&quot;</span><span class="p">}</span>
+<span class="n">institution_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">select_addresses</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">institution_address</span><span class="p">)</span> <span class="c1">#more about self.log_message can be found in the self.log_message section</span>
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Assuming we use the same config for all examples,</span>
+<span class="c1">#we know that there is only 1 Institution Actor in our system.</span>
+<span class="c1">#Therefore the above code should produce a the following in the log file</span>
+
+<span class="n">ActorAddr</span><span class="o">-</span><span class="n">LocalAddr</span><span class="mf">.1</span> <span class="c1">#This is mTree address for the institution and can be used in the message sending proceess</span>
+</pre></div>
+</div>
+<p><strong>Example: Using short_name selector</strong></p>
+<p>The <span class="xref std std-ref">short_name</span> selector is useful when the <strong>Actor</strong> wants to send a message specifically
+to another Actor. Since, no two Actors, share a common <strong>short_name</strong>, <code class="docutils literal notranslate"><span class="pre">self.address_book.select_addresses(selector)</span></code>
+should return a single address.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#we want to select the mTree address of the Actor with the short_name - &quot;institution_file.InstitutionClass 1&quot;</span>
+<span class="c1">#since short_names are unique to each Actor instance, the following should return a singe Actor address</span>
+
+<span class="n">selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;short_name&quot;</span><span class="p">:</span> <span class="s2">&quot;institution_file.InstitutionClass 1&quot;</span><span class="p">}</span> <span class="c1"># more on how short_names get assigned can be found in the short_name section</span>
+<span class="n">institution_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">selector</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">institution_address</span><span class="p">)</span> <span class="c1">#more about self.log_message can be found in the self.log_message section</span>
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Note this is should be the same as the output produced in the Example where our selector was {&quot;address_type&quot;: &quot;institution&quot;}</span>
+<span class="n">ActorAddr</span><span class="o">-</span><span class="n">LocalAddr</span><span class="mf">.1</span> <span class="c1">#This is mTree address for the institution and can be used in the message sending proceess</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In most cases, <code class="docutils literal notranslate"><span class="pre">self.address_book.select_addresses(selector)</span></code> produces a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> compatible list
+of addresses(if there is more than one entry for which the <strong>selector</strong> applies to). Consequently,
+this method becomes useful when you want to send <span class="xref std std-ref">message</span> to multiple Actors with varying <strong>payloads</strong>.
+However, if you want to send the same message(with no change in directive or payload) to a group of Actor types, you
+might want to consider using <span class="xref std std-ref">broadcast_message</span> instead.</p>
+</div>
+<p><strong>Example: Combining .select_addresses(selector) and Message()</strong></p>
+<p>In the code example below, we try to send each Agent Actor slightly different <strong>value estimates</strong> for a common value good.
+More about this code can be found in the <a class="reference internal" href="../learning/examples_guide.html#common-value-auction"><span class="std std-ref">Common Value Auction</span></a> section in <span class="xref std std-doc">learning_paths</span>.</p>
+<p><strong>Institution Code</strong>
+Here the institution sends slightly different <strong>value estimates</strong> of a <strong>common value good</strong> to
+all the Agent Actors in its <strong>address_book</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#This is an imagined directive that our institution finds itself in</span>
+
+<span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;institution_directive&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">institution_directive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+
+    <span class="c1">#We are assuming that the Institution Actor has already received a copy of the</span>
+    <span class="c1">#Environment Actor&#39;s address_book which it has merged with its own using the</span>
+    <span class="c1"># .merge_addresses(addresses) method.</span>
+    <span class="c1">#We also assume we are using the same config with 5 Agent Actors.</span>
+    <span class="n">agent_address_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">select_addresses</span><span class="p">({</span><span class="s2">&quot;address_type&quot;</span><span class="p">:</span> <span class="s2">&quot;agent&quot;</span><span class="p">})</span> <span class="c1"># produces a list of 5 Agent Actor addresses</span>
+
+    <span class="k">for</span> <span class="n">agent_address</span> <span class="ow">in</span> <span class="n">agent_address_list</span><span class="p">:</span> <span class="c1">#we iterate over the addresses</span>
+
+        <span class="c1">#Assume self.common_value and self.error are float values set in</span>
+        <span class="c1">#a previous directive</span>
+        <span class="n">lower_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">common_value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span>
+        <span class="n">upper_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">common_value</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span>
+
+        <span class="c1">#random.uniform will produce a different value_estimate b/w [lower_bound, upper_bound] for each iteration of the for loop</span>
+        <span class="n">value_estimate</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">common_value</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">)</span> <span class="c1">#The random function should return a number between () and 20 with uniform probability</span>
+
+        <span class="c1">#The dictionary we send to each agent</span>
+        <span class="n">payload_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;value_estimate&quot;</span><span class="p">:</span> <span class="n">value_estimate</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">}</span>
+
+        <span class="n">agent_message</span> <span class="o">=</span>  <span class="n">Message</span><span class="p">()</span><span class="c1">#create a message object</span>
+        <span class="n">agent_message</span><span class="o">.</span><span class="n">set_directive</span><span class="p">(</span><span class="s2">&quot;receive_value_estimate&quot;</span><span class="p">)</span> <span class="c1">#this is the directive where each Agent can receive messages</span>
+        <span class="n">agent_message</span><span class="o">.</span><span class="n">set_sender</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAddress</span><span class="p">)</span><span class="c1">#set the sender to the Actor&#39;s personal address</span>
+        <span class="n">agent_message</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="n">payload_dict</span><span class="p">)</span> <span class="c1">#pass the payload dict we just defined</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">agent_address</span><span class="p">,</span> <span class="n">agent_message</span><span class="p">)</span> <span class="c1">#the agent_address would be new each time the for loop is run</span>
+</pre></div>
+</div>
+<p><strong>Agent Message Receiving Code</strong></p>
+<p>Here the Agent Actor receives the unique <code class="docutils literal notranslate"><span class="pre">value_estimate</span></code> that the <strong>Institution</strong> sent
+along with the ubiquitous <code class="docutils literal notranslate"><span class="pre">error</span></code> key.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;receive_value_estimate&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">receive_value_estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span><span class="n">Message</span><span class="p">):</span>
+
+    <span class="n">payload_dict</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_payload</span><span class="p">()</span><span class="c1">#returns the payload dictionary that was set by the sender</span>
+    <span class="c1">#we define class variables using the keys of the payload dictionary</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">value_estimate</span> <span class="o">=</span> <span class="n">payload_dict</span><span class="p">[</span><span class="s2">&quot;value_estimate&quot;</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">error</span>  <span class="o">=</span> <span class="n">payload_dict</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="xref std std-ref">select_addresses</span> is very useful method when sending a slightly unique message
+to all Actors of one type (Institution/Agent). Notice, the only aspect of the message that changed for each iteration of the <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>
+was the <strong>value_estimate</strong>. Moreover, in this example, we assume that all <strong>Agent Actors</strong> have a  <span class="xref std std-ref">&#64;directive_decorator(“receive_value_estimate”)</span> in their
+AgentClass. Although, this shouldn’t be a problem if all Actors belong to the same <strong>AgentClass</strong>, however, if there is
+more than one <strong>AgentClass</strong> defined in the <strong>mes</strong> folder as well as referenced in the <span class="xref std std-ref">config_file</span>, each AgentClass would
+need to have a <span class="xref std std-ref">&#64;directive_decorator(“receive_value_estimate”)</span> method. Otherwise, <strong>mTree</strong> would through
+an <strong>ERROR</strong>.</p>
+</div>
+</section>
+<section id="self-address-book-broadcast-message-selector-message">
+<span id="broadcast-message"></span><h4>self.address_book.broadcast_message(selector, message)<a class="headerlink" href="#self-address-book-broadcast-message-selector-message" title="Permalink to this heading"></a></h4>
+<p>This method broadcasts or sends a <strong>message</strong> to all <strong>entries</strong> in the Actor’s personal
+<strong>address_book</strong> that the <strong>selector</strong> agrees with. Unlike <span class="xref std std-ref">select_addresses</span>, which returns a list of addresses,
+the <code class="docutils literal notranslate"><span class="pre">self.address_book.broadcast_message(selector,</span> <span class="pre">message)</span></code> method does the message sending for the
+Actor.</p>
+<p><strong>Input: selector(dict), message</strong></p>
+<p>The <strong>selector</strong> is a dictionary that can only have one of the following key and value pairs.</p>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Selector</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>key</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>“address_type”</p></td>
+<td><p>“agent”/”institution”</p></td>
+</tr>
+<tr class="row-odd"><td><p>“short_name”</p></td>
+<td><p>“file_name.ActorClass instance(int)”</p></td>
+</tr>
+</tbody>
+</table>
+<p>The purpose of the <strong>selector</strong> is to help <strong>address_book</strong> object select specific
+<strong>mTree addresses</strong> from the <strong>entries</strong> that have the same <strong>value</strong> as the <strong>selector</strong> inside their
+<strong>description dictionaries</strong>.</p>
+<p>The <strong>message</strong> argument takes in the <span class="xref std std-ref">message</span> object that needs to be passed
+to all entries that the <strong>selector</strong> applies to.</p>
+<p><strong>Output: None</strong></p>
+<p>This method doesn’t return anything, however, performs the important function of sending the <strong>message</strong>,
+that is submitted as an argument, to all the <strong>address_book</strong> <strong>entries</strong> that the <strong>selector</strong> applies to.</p>
+<p><strong>Example</strong></p>
+<p>The following code should send a message to all Agent Actor <strong>entries</strong> present in the <strong>address_book</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">()</span><span class="c1">#we create a new message object</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_sender</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAddress</span><span class="p">)</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_directive</span><span class="p">(</span><span class="s2">&quot;receive_message&quot;</span><span class="p">)</span> <span class="c1">#the directive_method where this message will be received</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#you can choose this to be anything</span>
+<span class="n">new_message</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="n">selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;address_type&quot;</span><span class="p">:</span> <span class="s2">&quot;agent&quot;</span><span class="p">}</span> <span class="c1"># you can change the selector</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">broadcast_message</span><span class="p">(</span><span class="n">selector</span><span class="p">,</span> <span class="n">new_message</span><span class="p">)</span><span class="c1">#take note of how we pass the selector and the message object</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <span class="xref std std-ref">broadcast_message</span> is useful when you want to send the
+same message (no variation) to all Actors of one type (Institution/Agent).</p>
+</div>
+<p><strong>Example: Common Value Auction</strong></p>
+<p>The code example below is from <a class="reference internal" href="../learning/examples_guide.html#common-value-auction"><span class="std std-ref">Common Value Auction</span></a> section in <span class="xref std std-doc">learning_paths</span>.
+In this portion, the <span class="xref std std-ref">Environment</span> Actor sends the <span class="xref std std-ref">Agent</span> Actor their <strong>endowment</strong> which is
+constant for all Agents in the system. As a result, <span class="xref std std-ref">broadcast_message</span> becomes valuable because we are
+sending the same <span class="xref std std-ref">message</span> to all Agent Actors.</p>
+<p><strong>Environment Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#self.provide_endowment is a method that gets run in the start_environment method</span>
+
+<span class="k">def</span> <span class="nf">provide_endowment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">endowment</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#Agent endowment</span>
+
+    <span class="c1">#Defining a Message</span>
+    <span class="n">new_message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">()</span>  <span class="c1">#declare message</span>
+    <span class="n">new_message</span><span class="o">.</span><span class="n">set_sender</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAddress</span><span class="p">)</span>  <span class="c1"># set the sender of message to this actor</span>
+    <span class="n">new_message</span><span class="o">.</span><span class="n">set_directive</span><span class="p">(</span><span class="s2">&quot;set_endowment&quot;</span><span class="p">)</span>  <span class="c1">#set the directive</span>
+    <span class="n">payload_dict</span>  <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;endowment&quot;</span><span class="p">:</span> <span class="n">endowment</span><span class="p">}</span>
+    <span class="n">new_message</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="n">payload_dict</span><span class="p">)</span> <span class="c1">#set the payload as the payload_dict we defined in the line above</span>
+
+    <span class="c1">#Broadcasting the message using the AddressBook</span>
+    <span class="n">selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;address_type&quot;</span><span class="p">:</span> <span class="s2">&quot;agent&quot;</span><span class="p">}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">broadcast_message</span><span class="p">(</span><span class="n">selector</span><span class="p">,</span> <span class="n">new_message</span><span class="p">)</span> <span class="c1">#this will send a message to all Agent Actors</span>
+
+    <span class="c1">#Or the following should also work</span>
+    <span class="c1">#self.address_book.broadcast_message({&quot;address_type&quot;: &quot;agent&quot;}, new_message)</span>
+</pre></div>
+</div>
+<p><strong>Agent Message Receiving Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#this is a directive inside the AgentClass</span>
+<span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;set_endowment&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_endowment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+
+    <span class="n">payload_dict</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_payload</span><span class="p">()</span> <span class="c1">#we access the payload/content of the message that was sent</span>
+    <span class="n">environment_address</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_sender</span><span class="p">()</span> <span class="c1">#we access the environment&#39;s address</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">endowment</span> <span class="o">=</span> <span class="n">payload_dict</span><span class="p">[</span><span class="s2">&quot;endowment&quot;</span><span class="p">]</span><span class="c1">#we create a class variable self.endowment and set it equal to the amount sent by the environment</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="logs">
+<span id="id12"></span><h2>Logs<a class="headerlink" href="#logs" title="Permalink to this heading"></a></h2>
+<p><strong>Logging</strong> is a way to output important information from a simulation in order
+to keep track of what the code is doing at various steps, as well as collect data
+for analysis.</p>
+<p>There are 2 types of logging that <strong>mTree</strong> allows -</p>
+<ol class="arabic simple">
+<li><p><span class="xref std std-ref">experiment_logging</span> - Appears in the <code class="docutils literal notranslate"><span class="pre">.log</span></code> files.</p></li>
+<li><p><span class="xref std std-ref">data_logging</span>- Appears in the <code class="docutils literal notranslate"><span class="pre">.data</span></code> files.</p></li>
+</ol>
+<p>Each run of an <strong>mTree</strong> <span class="xref std std-ref">config file</span> creates a <code class="docutils literal notranslate"><span class="pre">.log</span></code> file which
+gets placed inside the <strong>logs</strong> folder inside your <strong>simulation_folder</strong>
+(where your <span class="xref std std-ref">config</span> and <strong>mes</strong> folders are stored).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have already created a <strong>logs</strong> folder prior to running your <strong>mTree</strong> simulation,
+your <code class="docutils literal notranslate"><span class="pre">.log</span></code> and <code class="docutils literal notranslate"><span class="pre">.data</span></code> files should appear inside it. Nevertheless, even if you haven’t
+created one, <strong>mTree</strong> will generate a <strong>logs</strong> folder for you and place those files inside
+it.</p>
+</div>
+<figure class="align-center" id="id24">
+<img alt="../_images/reference_logsfolder.png" src="../_images/reference_logsfolder.png" />
+<figcaption>
+<p><span class="caption-text">Inside the <strong>logs</strong> folder</span><a class="headerlink" href="#id24" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although, each run of a <span class="xref std std-ref">config file</span> creates a <code class="docutils literal notranslate"><span class="pre">.log</span></code> file, however,
+a <code class="docutils literal notranslate"><span class="pre">.data</span></code> file only gets created when one of the <strong>ActorClasses</strong> uses the <span class="xref std std-ref">log_data</span> method
+somewhere in one of its methods.</p>
+</div>
+<section id="naming">
+<h3>Naming<a class="headerlink" href="#naming" title="Permalink to this heading"></a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">.log</span></code> and <code class="docutils literal notranslate"><span class="pre">.data</span></code> file associated with a <span class="xref std std-ref">config_file</span> get named the following way -</p>
+<figure class="align-center" id="id25">
+<img alt="../_images/reference_logs_filenaming.png" src="../_images/reference_logs_filenaming.png" />
+<figcaption>
+<p><span class="caption-text">Each run of the same <span class="xref std std-ref">config_file</span> should generate its own set of <span class="xref std std-ref">.log</span> and <span class="xref std std-ref">.data</span> files</span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The following figure shows how different runs of the same <span class="xref std std-ref">config_file</span> are named -</p>
+<figure class="align-center" id="id26">
+<img alt="../_images/reference_logs_multipleruns.png" src="../_images/reference_logs_multipleruns.png" />
+<figcaption>
+<p><span class="caption-text">Snapshot of the files that get generated inside the <strong>logs</strong> folder.</span><a class="headerlink" href="#id26" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="experiment-logging">
+<span id="id13"></span><h3>Experiment Logging<a class="headerlink" href="#experiment-logging" title="Permalink to this heading"></a></h3>
+<p><strong>Experiment Logging</strong> can be used to keep track of</p>
+<ol class="arabic simple">
+<li><p>The messages Actors send or receive.</p></li>
+<li><p>How received messages change the internal state of the Actors.</p></li>
+</ol>
+<p>As a result, <strong>Experiment Logging</strong> can be used to <strong>monitor</strong> whether our simulation/experiment
+is behaving according to our <strong>microeconomic system</strong> design.</p>
+<section id="self-log-message-content">
+<span id="log-message"></span><h4>self.log_message(content)<a class="headerlink" href="#self-log-message-content" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">self.log_message(content)</span></code> is a method that gets setup for each Actor during initialization and allows
+them to output information from various points within the <strong>ActorClass</strong> to the <span class="xref std std-ref">.log</span>.</p>
+<p>Since <strong>mTree</strong> suppresses <code class="docutils literal notranslate"><span class="pre">print()</span></code> statements, <code class="docutils literal notranslate"><span class="pre">self.log_message(content)</span></code> is the closest method we
+have to monitor how the internal state of the Actors is changing in response to received messages.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">self.log_message(content)</span></code> logs to the <cite>.log</cite> file present in the <cite>logs</cite> folder.</p>
+<p><strong>Input: content(any python data type)</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">self.log_message(content)</span></code> method can take in all arguments types that a <code class="docutils literal notranslate"><span class="pre">print()</span></code> function is equipped to handle.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One of the common mistakes people make while using <code class="docutils literal notranslate"><span class="pre">self.log_message(content)</span></code>
+is treating it exactly like a <code class="docutils literal notranslate"><span class="pre">print()</span></code> function and passing more than one argument to
+it. For instance, if you pass 2 arguments to a <code class="docutils literal notranslate"><span class="pre">print(&quot;a&quot;,</span> <span class="pre">&quot;b&quot;)</span></code> function, <code class="docutils literal notranslate"><span class="pre">print()</span></code> treats
+the comma in between “a” and “b” as space and outputs - <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">b</span></code>. However, if you run
+<code class="docutils literal notranslate"><span class="pre">self.log_message(&quot;a&quot;,</span> <span class="pre">&quot;b&quot;)</span></code> you will get an <strong>ERROR</strong> because the method only takes in a single
+argument and you have tried to pass in two.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Anything that can be printed can be logged&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<p>The output generated in your <span class="xref std std-ref">.log file</span> should look like the following.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">1649966264.0786786</span>  <span class="n">Anything</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">printed</span> <span class="n">can</span> <span class="n">be</span> <span class="n">logged</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id27">
+<img alt="../_images/reference_logmessage_output.png" src="../_images/reference_logmessage_output.png" />
+<figcaption>
+<p><span class="caption-text">A <code class="docutils literal notranslate"><span class="pre">.log</span></code> file entry</span><a class="headerlink" href="#id27" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Each time <code class="docutils literal notranslate"><span class="pre">self.log_message(content)</span></code> gets called by one of the Actors,
+there is a new entry in the <code class="docutils literal notranslate"><span class="pre">.log</span></code> file on a new line. The first part of the
+entry is the <strong>UTC timestamp</strong> of when the <code class="docutils literal notranslate"><span class="pre">self.log_message(content)</span></code> was called, the second
+part (separated by a space) is the <strong>content</strong> you passed into the method.</p>
+</section>
+<section id="log-file">
+<span id="id14"></span><h4>Log File<a class="headerlink" href="#log-file" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">.log</span></code> file for each run of an <strong>mTree</strong> <span class="xref std std-ref">config file</span> should appear
+in the <strong>logs</strong> folder.</p>
+<section id="id15">
+<h5>Structure<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h5>
+<p>The first few lines of the <code class="docutils literal notranslate"><span class="pre">.log</span></code> file that gets generated from the simulation run consists of
+the <strong>json dictionary</strong> that was used as the <span class="xref std std-ref">configurations dictionary</span>
+for the run.</p>
+<figure class="align-center" id="id28">
+<img alt="../_images/reference_logfile_config.png" src="../_images/reference_logfile_config.png" />
+<figcaption>
+<p><span class="caption-text">This is the same as the <strong>json dictionary</strong> inside the <span class="xref std std-ref">config_file</span> you ran.</span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The second part of the <code class="docutils literal notranslate"><span class="pre">.log</span></code> file consists of a series of <strong>timestamped</strong> log outputs made
+by both <strong>mTree</strong> and <span class="xref std std-ref">log_message</span> calls (inside different message passing/receiving <strong>Actors</strong>).</p>
+</section>
+<section id="mtree-logging">
+<h5>mTree logging<a class="headerlink" href="#mtree-logging" title="Permalink to this heading"></a></h5>
+<p><strong>mTree</strong> logs each time an <strong>Actor</strong> enters and exits a <span class="xref std std-ref">directive method</span>. In other words,
+<strong>mTree</strong> logs each time an <strong>Actor</strong> -</p>
+<ol class="arabic simple">
+<li><p>Receives a message - denoted by <strong>entering</strong> the <span class="xref std std-ref">directive method</span> where the message was sent to.</p></li>
+<li><p>Is finished processing the message - denotend by <strong>exiting</strong> the <span class="xref std std-ref">directive method</span> where the message was sent to.</p></li>
+</ol>
+<p><strong>mTree logging</strong> also informs us <strong>who</strong> (<span class="xref std std-ref">short_name</span>) received the message as well.</p>
+<p>The following figure evaluates how an <strong>Institution Actor</strong> logs when a message is sent to it by the
+<strong>Environment</strong>.</p>
+<figure class="align-center">
+<img alt="../_images/reference_logs_mtreelogging.png" src="../_images/reference_logs_mtreelogging.png" />
+</figure>
+<p>The <strong>entry</strong> and <strong>exit</strong> method can be a good way to keep track of what messages are being sent and whether they were processes or not.
+For instance, if a message is never received by an <strong>Actor</strong>, then there should be not trace of an <strong>entry log</strong> similar to the once above
+inside the <code class="docutils literal notranslate"><span class="pre">.log</span></code> file. Similarly, if a message is received, but somewhere inside the directive a <strong>python error</strong> occurs, then, firstly, <strong>mTree</strong> should
+log the error, secondly, there should be no trace of the <strong>exit log</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For clarity purposes, we have shown the <strong>entry</strong> and <strong>exit</strong> statements by <strong>mTree</strong> one after the other.
+However, since <strong>mTree</strong> has a lot of concurrent actors logging to the <code class="docutils literal notranslate"><span class="pre">.log</span></code> file, it is possible that these
+statements are far apart and have multiple log <strong>entries</strong> made by other <strong>Actors</strong> in between. Regardless, the
+order of the statements should not change, meaning, the <strong>entry</strong> statement should still be observed
+before the <strong>exit</strong> statement.</p>
+</div>
+</section>
+<section id="actor-logging">
+<h5>Actor logging<a class="headerlink" href="#actor-logging" title="Permalink to this heading"></a></h5>
+<p>Actor logging refers to the logging done by different Actors using the <span class="xref std std-ref">log_message</span> method inside the Actor.
+This can be used in conjunction with that <strong>mTree</strong> does automatically for both debugging the code and tracking whether
+internal states of <strong>Actors</strong> is changing according to our design.</p>
+</section>
+<section id="example">
+<h5>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h5>
+<p>The following code shows the log output generated by the <strong>Institution Actor</strong> when it receives
+a copy of the <span class="xref std std-ref">addresses</span> from the <strong>Environment</strong> and adds it to
+its own version of address_book. During the process, we try to track the following values -</p>
+<ul class="simple">
+<li><p><span class="xref std std-ref">get_addresses</span> - before and after <span class="xref std std-ref">merge_addresses</span> is called.</p></li>
+<li><p>message.payload() - The content of the message that gets sent.</p></li>
+<li><p>message.get_sender() - The <strong>mTree</strong> address of the message sending Actor.</p></li>
+</ul>
+<p>We include the <strong>Environment Actor</strong> code that does the message sending but we only display the
+log statements made by the <strong>Institution Actor</strong> for clarity.</p>
+<p><strong>Environment Code</strong>
+Environment sends the <strong>addresses dictionary</strong> to Institution in start_environment directiv.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mTree.microeconomic_system.environment</span> <span class="kn">import</span> <span class="n">Environment</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.institution</span> <span class="kn">import</span> <span class="n">Institution</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.agent</span> <span class="kn">import</span> <span class="n">Agent</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.directive_decorators</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.message</span> <span class="kn">import</span> <span class="n">Message</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+
+<span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">EnvironmentClass</span><span class="p">(</span><span class="n">Environment</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;start_environment&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">start_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+
+        <span class="n">selector</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;short_name&quot;</span><span class="p">:</span> <span class="s2">&quot;institution_file.InstitutionClass 1&quot;</span><span class="p">}</span><span class="c1">#short_name selector, helps in the select_addresses() method</span>
+        <span class="n">institution_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">select_addresses</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span> <span class="c1">#extract the institution address from the address_book object</span>
+        <span class="c1">#self.log_message(f&quot;institution_address = {institution_address}&quot;)</span>
+        <span class="n">address_dictionary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_addresses</span><span class="p">()</span> <span class="c1">#extract all the address_book entries</span>
+
+        <span class="n">new_message</span> <span class="o">=</span>  <span class="n">Message</span><span class="p">()</span> <span class="c1">#define a message object</span>
+        <span class="n">new_message</span><span class="o">.</span><span class="n">set_sender</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAddress</span><span class="p">)</span> <span class="c1">#set sender to the Actor&#39;s personal address</span>
+        <span class="n">new_message</span><span class="o">.</span><span class="n">set_directive</span><span class="p">(</span><span class="s2">&quot;institution_message&quot;</span><span class="p">)</span><span class="c1">#set directive</span>
+        <span class="n">new_message</span><span class="o">.</span><span class="n">set_payload</span><span class="p">(</span><span class="n">address_dictionary</span><span class="p">)</span> <span class="c1">#set the payload to the address_dictionary we define above</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">institution_address</span><span class="p">,</span> <span class="n">new_message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Institution Code</strong>
+Institution receives the <strong>addresses dictionary</strong> and adds it to its <span class="xref std std-ref">address_book</span>
+object using <span class="xref std std-ref">merge_addresses</span>. We track the message attributes that are received and
+more specifically the</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mTree.microeconomic_system.environment</span> <span class="kn">import</span> <span class="n">Environment</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.institution</span> <span class="kn">import</span> <span class="n">Institution</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.agent</span> <span class="kn">import</span> <span class="n">Agent</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.directive_decorators</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mTree.microeconomic_system.message</span> <span class="kn">import</span> <span class="n">Message</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+
+<span class="nd">@directive_enabled_class</span>
+<span class="k">class</span> <span class="nc">InstitutionClass</span><span class="p">(</span><span class="n">Institution</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@directive_decorator</span><span class="p">(</span><span class="s2">&quot;institution_message&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">institution_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span><span class="n">Message</span><span class="p">):</span>
+
+        <span class="n">environment_address</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_sender</span><span class="p">()</span> <span class="c1">#since environment is the message sender, we can extract its address this way.</span>
+        <span class="n">address_dictionary</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get_payload</span><span class="p">()</span> <span class="c1">#the Environment sends the address_dictionary (obtained using self.address_book.get_addresses())</span>
+
+        <span class="c1">#Logging Initial State</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Institution: environment_address = </span><span class="si">{</span><span class="n">environment_address</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="c1"># the environment&#39;s address</span>
+                        <span class="sa">f</span><span class="s2">&quot;Institution: address_dictionary = </span><span class="si">{</span><span class="n">address_dictionary</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="c1"># the address_dictionary it received from the Environment</span>
+                        <span class="sa">f</span><span class="s2">&quot;Institution: Initial self.address_book.get_addresses = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_addresses</span><span class="p">()</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span> <span class="c1">#logs the current addresses it has in its possession</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">merge_addresses</span><span class="p">(</span><span class="n">address_dictionary</span><span class="p">)</span><span class="c1">#we merge the addresses we received with our own address_book object</span>
+
+        <span class="c1">#Logging Final State</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Institution: Final self.address_book.get_addresses = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_addresses</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>.log Output</strong></p>
+<p>We have listed the log outputs generated as a result of the <strong>institution_message</strong> directive.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1650482151.553274</span>   <span class="n">Institution</span> <span class="p">(</span><span class="n">institution_file</span><span class="o">.</span><span class="n">InstitutionClass</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span> <span class="n">About</span> <span class="n">to</span> <span class="n">enter</span> <span class="n">directive</span><span class="p">:</span> <span class="n">institution_message</span>
+<span class="mf">1650482151.556913</span>   <span class="n">Institution</span><span class="p">:</span> <span class="n">environment_address</span> <span class="o">=</span> <span class="n">ActorAddr</span><span class="o">-</span><span class="p">(</span><span class="n">T</span><span class="o">|</span><span class="p">:</span><span class="mi">41851</span><span class="p">)</span>
+<span class="n">Institution</span><span class="p">:</span> <span class="n">address_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;institution&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103c10</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103b20</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103310</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103340</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 3&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018101880</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 4&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 5&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018101130</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 5&#39;</span><span class="p">}}</span>
+<span class="n">Institution</span><span class="p">:</span> <span class="n">Initial</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_addresses</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="mf">1650482151.5645256</span>  <span class="n">Institution</span><span class="p">:</span> <span class="n">Final</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_book</span><span class="o">.</span><span class="n">get_addresses</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;institution&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103c10</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;institution_file.InstitutionClass 1&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103b20</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 1&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103310</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 2&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018103340</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 3&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018101880</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 4&#39;</span><span class="p">},</span> <span class="s1">&#39;agent_file.AgentClass 5&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;address_type&#39;</span><span class="p">:</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">thespian</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">ActorAddress</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x4018101130</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;component_class&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass&#39;</span><span class="p">,</span> <span class="s1">&#39;component_number&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;agent_file.AgentClass 5&#39;</span><span class="p">}}</span>
+<span class="mf">1650482151.5661018</span>  <span class="n">Institution</span> <span class="p">(</span><span class="n">institution_file</span><span class="o">.</span><span class="n">InstitutionClass</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span> <span class="n">Exited</span> <span class="n">directive</span><span class="p">:</span> <span class="n">institution_message</span>
+</pre></div>
+</div>
+<p>Based on the output we can see that the message was properly processed according to our code because of the <strong>entry logging</strong> and
+<strong>exit logging**(first and last lines respectively). We were also able to check that the payload (line number 3 of the code-block) was not **None</strong>.
+Finally, we were able to monitor the state change of the <strong>self.address_book.get_addresses()</strong> in line 4 and the change
+that takes place in line 5.</p>
+</section>
+</section>
+</section>
+<section id="data-logging">
+<span id="id16"></span><h3>Data Logging<a class="headerlink" href="#data-logging" title="Permalink to this heading"></a></h3>
+<section id="self-log-data-content">
+<span id="log-data"></span><h4>self.log_data(content)<a class="headerlink" href="#self-log-data-content" title="Permalink to this heading"></a></h4>
+</section>
+<section id="data-file">
+<span id="id17"></span><h4>Data File<a class="headerlink" href="#data-file" title="Permalink to this heading"></a></h4>
+</section>
+<section id="interpret-into-jupyter-notebook">
+<h4>Interpret into Jupyter notebook<a class="headerlink" href="#interpret-into-jupyter-notebook" title="Permalink to this heading"></a></h4>
+<p>Simple suggestions on how to log data using dictionaries and little code on how pandas could
+be used to read the dataframe.</p>
+</section>
+</section>
+</section>
+<section id="error-handling">
+<span id="error"></span><h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this heading"></a></h2>
+<section id="directive-name-error">
+<span id="directive-error"></span><h3>Directive name error<a class="headerlink" href="#directive-name-error" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="mtree-simulation-state">
+<span id="sim-state"></span><h2>mTree Simulation State<a class="headerlink" href="#mtree-simulation-state" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mtree_theory.html" class="btn btn-neutral float-left" title="Theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reference_short.html" class="btn btn-neutral float-right" title="References Short" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CEE Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #105a04;
+    }
+    /* Sidebar */
+    .wy-nav-side {
+      background: #105a04;
+    }
+  </style>
+
+
+</body>
+</html>

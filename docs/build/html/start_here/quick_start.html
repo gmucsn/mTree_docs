@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quickstart Guide &mdash; mTree 1.2.1b documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Theory" href="../reference/mtree_theory.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> mTree
+          </a>
+              <div class="version">
+                1.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about-this-guide">About this Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-and-mtree">Docker and mTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ide-and-python">IDE and Python</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cloning-mtree-auction-examples-folder">Cloning mTree_auction_examples Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-an-example">Running an Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#container-setup">Container Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-container">Running the Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-value-auction">Common Value Auction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-structure">File Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-common-value-auction-simulation">Running common_value_auction simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-know-your-simulation-has-finished-running">How to know your simulation has finished running?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-results">Simulation Results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logs">logs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-for-errors">Checking for Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quitting">Quitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/mtree_theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/reference_short.html">References Short</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/contributor_guide.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html">Examples Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#biggind-game">Biggind Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#tatonnement">Tatonnement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#sealed-bid-auction">Sealed Bid Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#ascending-price-auction">Ascending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#descending-price-auction">Descending Price Auction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/examples_guide.html#common-value-auction">Common Value Auction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mTree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Quickstart Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/start_here/quick_start.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quickstart-guide">
+<h1>Quickstart Guide<a class="headerlink" href="#quickstart-guide" title="Permalink to this heading"></a></h1>
+<section id="about-this-guide">
+<span id="about-qs-guide"></span><span id="id1"></span><h2>About this Guide<a class="headerlink" href="#about-this-guide" title="Permalink to this heading"></a></h2>
+<p>This guide will lead you through the required installations, configurations, and steps to download and use <strong>mTree</strong> on your machine. It
+will also show you the main functionalities of <strong>mTree</strong> and should serve as a jumping-off point for further learning. This guide is meant
+to be understandable to complete beginners, and currently documents processes for Windows and Mac users. <strong>mTree</strong> is however compatible
+with major Linux distributions.</p>
+<p>By the end of this <strong>Quickstart Guide</strong> you should be able to:</p>
+<ul class="simple">
+<li><p>set up mTree on your machine</p></li>
+<li><p>download examples</p></li>
+<li><p>run an example simulation</p></li>
+<li><p>set up your own mTree project</p></li>
+<li><p>implement the main functionalities of mTree</p></li>
+<li><p>debug mTree projects</p></li>
+<li><p>use the reference guide</p></li>
+<li><p>continue learning mTree with further examples.</p></li>
+</ul>
+</section>
+<section id="installation">
+<span id="setting-up-mtree"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<section id="docker-and-mtree">
+<h3>Docker and mTree<a class="headerlink" href="#docker-and-mtree" title="Permalink to this heading"></a></h3>
+<p>The user version of mTree is distributed as a <strong>Docker</strong> image, so in order to use the latest version of mTree
+you need both Docker and the latest mTree image. <strong>Docker</strong> is a way to package code so that is runs the same way on
+any system, to install it follow this guide: <a class="reference internal" href="installation.html#install-docker-desk"><span class="std std-ref">Installing Docker Desktop</span></a>. The guide specifically shows you how to install
+<strong>Docker Desktop</strong>, which is also used in <strong>mTree</strong> installation and configuration guide.</p>
+<p>Once you have <strong>Docker</strong> installed, you can download the latest <strong>mTree</strong> image, following this guide: <a class="reference internal" href="installation.html#install-mtree"><span class="std std-ref">Installing mTree</span></a>.</p>
+</section>
+<section id="git">
+<h3>Git<a class="headerlink" href="#git" title="Permalink to this heading"></a></h3>
+<p>In order to download the examples used in this guide, you will need git. Even if you are unfamiliar with git, there is a good chance it is
+already installed on your computer. Depending on your operating system, git installation will differ slightly.</p>
+<dl>
+<dt><em>Mac Users</em></dt><dd><ul class="simple">
+<li><p>Open up Terminal and run <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code>.</p></li>
+<li><p>If the command is not recognized, follow this link to <a class="reference external" href="https://git-scm.com/download/mac">Download Git for macOS</a>.</p></li>
+<li><p>You have several options on how to install <strong>git</strong>. The <strong>homebrew</strong> route is a good option, for which you can follow this tutorial</p></li>
+</ul>
+<p>video: <a class="reference external" href="https://www.youtube.com/watch?v=ZM3I16Z-lxI">Git Homebrew Installation</a>.</p>
+</dd>
+<dt><em>Windows Users</em></dt><dd><ul class="simple">
+<li><p>Open up Command Prompt or PowerShell and run <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code>.</p></li>
+<li><p>If the command is not recognized, follow this link to <a class="reference external" href="https://git-scm.com/download/win">Download Git for Windows</a>.</p></li>
+<li><p>And follow this tutorial video <a class="reference external" href="https://www.youtube.com/watch?v=4xqVv2lTo40">Intall Git for Windows</a>.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="ide-and-python">
+<h3>IDE and Python<a class="headerlink" href="#ide-and-python" title="Permalink to this heading"></a></h3>
+<p>While not strictly required, we using an Integrated Development Environment (IDE) to edit and view <strong>mTree</strong> simulation code. If you are
+unfamiliar with any IDE, <a class="reference external" href="https://code.visualstudio.com">VSCode</a> and <a class="reference external" href="https://docs.spyder-ide.org/3/installation.html">Spyder</a> are
+great IDEs for python.</p>
+<p>Similarly, installing python natively is not strictly required to be able to run or develop mTree simulations, it is highly recommended
+for unit testing. Get the latest <a class="reference external" href="https://www.python.org/downloads/">Python distribution</a> or install it with a suite of science-oriented
+packages through <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a>.</p>
+</section>
+</section>
+<section id="cloning-mtree-auction-examples-folder">
+<span id="cloning-mtree-auction-examples"></span><h2>Cloning mTree_auction_examples Folder<a class="headerlink" href="#cloning-mtree-auction-examples-folder" title="Permalink to this heading"></a></h2>
+<p>We are going to clone (download a copy) the <a class="reference external" href="https://github.com/nalinbhatt/mTree_auction_examples.git">mTree_auction_examples</a> repository
+and run one of the examples to make sure <strong>mTree</strong> is running properly on your machine.</p>
+<p>Open your <strong>Command Line</strong> (Command Prompt or Power Shell on Windows, Terminal on macOS) at the place in your file system where you would
+like to download the <strong>mTree Examples</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you opened the <strong>Command Line</strong> in a different place, you can navigate your file system using the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. If you are new to
+<strong>Command Line</strong> you can check out these video tutorials:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://medium.com/&#64;grace.m.nolan/terminal-for-beginners-e492ba10902a">Terminal for Beginners</a> (macOS)</div>
+<div class="line"><a class="reference external" href="https://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/">A Beginner’s Guide to the Windows Command Prompt</a> (Windows)</div>
+</div>
+</div>
+<p>Once at your desired location, run the following code to create a local copy of the <strong>mTree_auction_examples</strong> folder:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/nalinbhatt/mTree_auction_examples.git</span>
+</pre></div>
+</div>
+</section>
+<section id="running-an-example">
+<span id="running-mtree-auction-examples"></span><h2>Running an Example<a class="headerlink" href="#running-an-example" title="Permalink to this heading"></a></h2>
+<p>Because <strong>mTree</strong> is containerized, we need to create a <strong>Docker</strong> container. This is easy using the <strong>Docker Desktop</strong> app that we
+downloaded in  <a class="reference internal" href="installation.html"><span class="doc">Installation</span></a> section.</p>
+<section id="container-setup">
+<span id="mtree-auction-examples-container-setup"></span><h3>Container Setup<a class="headerlink" href="#container-setup" title="Permalink to this heading"></a></h3>
+<p>Follow the steps in the <a class="reference internal" href="installation.html#mtree-container-setup"><span class="std std-ref">mTree Container Setup</span></a> guide, setting the <strong>Host Path</strong> to your <strong>mTree_auction_example</strong> folder.</p>
+<p>After finishing the setup process, click <strong>Container/Apps</strong> on the sidebar of <strong>Docker Desktop</strong> and select your  <strong>mTree_auction_examples</strong>
+container.</p>
+<figure class="align-center" id="id6">
+<img alt="../_images/mTree_auction_examples_comp_setup.png" src="../_images/mTree_auction_examples_comp_setup.png" />
+<figcaption>
+<p><span class="caption-text">In your <strong>Containers/Apps</strong> section, you should see a container similar to this with the name you chose.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="running-the-container">
+<span id="running-mtree-auction-examples-container"></span><h3>Running the Container<a class="headerlink" href="#running-the-container" title="Permalink to this heading"></a></h3>
+<p>Start the container and open the <strong>Command Line Interface</strong> (<strong>CLI</strong>) from inside your <strong>Docker Desktop</strong> by clicking the <strong>CLI</strong> button.
+A more in-depth look can be found in <a class="reference internal" href="installation.html#mtree-container-options"><span class="std std-ref">Container Options</span></a> under <a class="reference internal" href="installation.html#mtree-container-start"><span class="std std-ref">Start</span></a> and <a class="reference internal" href="installation.html#mtree-container-cli"><span class="std std-ref">Open Shell</span></a>.</p>
+<p>Your <strong>CLI</strong> should look something like this:</p>
+<figure class="align-center" id="id7">
+<img alt="../_images/mTree_auction_examples_shell.png" src="../_images/mTree_auction_examples_shell.png" />
+<figcaption>
+<p><span class="caption-text">mTree_auction_examples <strong>CLI</strong> window produced by clicking the <strong>CLI</strong> button.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Double check that the shell is running in the appropriate folder by running the following commands depending on your operating system:</p>
+<p><em>Mac</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ls</span>
+</pre></div>
+</div>
+<p><em>Windows</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">dir</span>
+</pre></div>
+</div>
+<p>You should see the following output:</p>
+<figure class="align-center" id="id8">
+<img alt="../_images/quick_start_ls.png" src="../_images/quick_start_ls.png" />
+<figcaption>
+<p><span class="caption-text">Folders inside mTree_auction_examples.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="common-value-auction">
+<span id="cva"></span><h3>Common Value Auction<a class="headerlink" href="#common-value-auction" title="Permalink to this heading"></a></h3>
+<p>One of the subfolders present should have the name <strong>common_value_auction</strong>. Further information about the
+auction style and description can be found in the <a class="reference internal" href="../learning/examples_guide.html#common-value-auction"><span class="std std-ref">Common Value Auction</span></a> section of <span class="xref std std-doc">learning_paths</span>.</p>
+<p>In your <strong>mTree_auction_examples</strong> container <strong>shell</strong> type in the following command to set
+the current directory to <strong>common_value_auction</strong>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd common_value_auction</span>
+</pre></div>
+</div>
+</section>
+<section id="file-structure">
+<span id="id2"></span><h3>File Structure<a class="headerlink" href="#file-structure" title="Permalink to this heading"></a></h3>
+<p>After setting <strong>common_value_auction</strong> as the current directory, run <strong>ls</strong> or <strong>dir</strong> and
+you should see the following folders.</p>
+<ol class="arabic simple">
+<li><p><span class="xref std std-ref">config</span></p></li>
+<li><p><span class="xref std std-ref">mes</span></p></li>
+<li><p><span class="xref std std-ref">logs</span></p></li>
+</ol>
+<figure class="align-center" id="id9">
+<img alt="../_images/quick_start_cva_ls.png" src="../_images/quick_start_cva_ls.png" />
+<figcaption>
+<p><span class="caption-text">Folders inside common_value_auction</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to properly run an <strong>mTree simulation</strong> you need to set the current
+directory to the folder which contains a <strong>config</strong>, <strong>mes</strong>, and a <strong>logs</strong> folder.
+<strong>mTree</strong> looks for these particular folders to run the simulation. For our example, this is the <strong>common_value_auction</strong>
+folder inside <strong>mTree_auction_examples</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the future, when designing your own container, you can set the <strong>Host Path</strong>
+directly to the folder containing the <strong>config</strong> and <strong>mes</strong> folder. That way
+you don’t have to navigate to the desired directory within the docker <strong>shell</strong>.</p>
+</div>
+<p>The <span class="xref std std-ref">config</span> folder (short for configurations) contains your <strong>JSON config files</strong> which are used to instantiate <strong>mTree</strong> <span class="xref std std-ref">Actors</span> defined in
+the <strong>mes</strong> folder.</p>
+<p>The <strong>mes</strong> folder (short for Microeconomic System) containes the python files where you define the different
+<span class="xref std std-ref">Actor</span> classes, namely - the <span class="xref std std-ref">environment</span> , <span class="xref std std-ref">institution</span> and <span class="xref std std-ref">agent</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is critical that your <strong>simulation folder</strong> contains a <strong>config</strong> folder, with a <strong>JSON config file</strong> inside,
+and a separate <strong>mes</strong> folder with python files inside, which contain <span class="xref std std-ref">environment</span> , <span class="xref std std-ref">institution</span> and <span class="xref std std-ref">agent</span> code.
+<strong>In the absence of any of these your mTree simulation will not run.</strong></p>
+</div>
+<p>Inside the <strong>config</strong> folder in the <strong>common_value_auction</strong> auction example, you should see a <strong>basic_simulation.json</strong> file.
+This is the config file which we will run.</p>
+<p>For the next step we want to make sure that our current directory is <strong>common_value_auction</strong> so if you used the <strong>cd</strong> command to
+change the directory to <strong>config</strong> and view its contents, we want to go up a directory using the following command to make sure
+we are in the right directory.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd ..</span>
+</pre></div>
+</div>
+</section>
+<section id="running-common-value-auction-simulation">
+<span id="run-config"></span><h3>Running common_value_auction simulation<a class="headerlink" href="#running-common-value-auction-simulation" title="Permalink to this heading"></a></h3>
+<p>We can type the following command into the <strong>shell</strong> to start <strong>mTree</strong>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mTree_runner</span>
+</pre></div>
+</div>
+<p>You should see something similar to this.</p>
+<figure class="align-center" id="id10">
+<img alt="../_images/quick_start_mTree_runner.png" src="../_images/quick_start_mTree_runner.png" />
+<figcaption>
+<p><span class="caption-text">mTree_runner window</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Enter the following to start the selection process for the config file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">run_simulation</span>
+</pre></div>
+</div>
+<p>Your window should look like this.</p>
+<figure class="align-center" id="id11">
+<img alt="../_images/quick_start_run_simulation.png" src="../_images/quick_start_run_simulation.png" />
+<figcaption>
+<p><span class="caption-text">run_simulation window</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Click <strong>&lt;enter&gt;</strong> to select and run the <strong>basic_simulation.json</strong> file.
+Your output should look something similar to this.</p>
+<figure class="align-center" id="id12">
+<img alt="../_images/quick_start_run_config.png" src="../_images/quick_start_run_config.png" />
+<figcaption>
+<p><span class="caption-text">Running basic_simulation.json file</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="how-to-know-your-simulation-has-finished-running">
+<span id="finished-sim"></span><h3>How to know your simulation has finished running?<a class="headerlink" href="#how-to-know-your-simulation-has-finished-running" title="Permalink to this heading"></a></h3>
+<p>mTree provides a <code class="docutils literal notranslate"><span class="pre">check_status</span></code> command that allows you to inquire the state of the simulation from the <strong>shell</strong> or <strong>console</strong>.
+Run the following command in your <strong>shell</strong> to see the state of the simulation. If you wish to know more about this command visit <span class="xref std std-ref">sim_state</span>
+section.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">check_status</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can enter the <code class="docutils literal notranslate"><span class="pre">check_status</span></code> command multiple times to view the state of your simulation.</p>
+</div>
+<p>Depending on the when you entered the <code class="docutils literal notranslate"><span class="pre">check_status</span></code> command, you should see any one of the following screens.</p>
+<figure class="align-center" id="id13">
+<img alt="../_images/quick_start_check_status_running.png" src="../_images/quick_start_check_status_running.png" />
+<figcaption>
+<p><span class="caption-text">This indicates our simulation is still running</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id14">
+<img alt="../_images/quick_start_check_status_finished.png" src="../_images/quick_start_check_status_finished.png" />
+<figcaption>
+<p><span class="caption-text">This indicates our simulation has finished running and we can move
+to the next step and view our simulation results.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Once we have identified that our simulation has finished we can move on to the next step which involves</p>
+</section>
+<section id="simulation-results">
+<span id="sim-results"></span><h3>Simulation Results<a class="headerlink" href="#simulation-results" title="Permalink to this heading"></a></h3>
+<p>Ideally when a simulation is run, you should setup <span class="xref std std-ref">Actors</span> in such a way that
+they constantly <span class="xref std std-ref">log</span>  their states to <span class="xref std std-ref">.log</span>  and  <span class="xref std std-ref">.data</span> files.
+This allows us to analyze how Actors behaved in our system, what decisions they made, and what effects those decisions had on the
+system as whole.</p>
+<section id="logs">
+<h4>logs<a class="headerlink" href="#logs" title="Permalink to this heading"></a></h4>
+<p>The <strong>logs</strong> folder, inside your simulation folder (which in our case is <strong>common_value_auction</strong>), is where the
+output from your simulation gets stored. You should see a file ending in <code class="docutils literal notranslate"><span class="pre">.log</span></code> and a file ending in <code class="docutils literal notranslate"><span class="pre">.data</span></code>.</p>
+<p>More on how these files are named can be found <span class="xref std std-ref">here</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the figure below, we use <a class="reference external" href="https://code.visualstudio.com">VSCode</a> to open the generated <strong>log files</strong>.
+However, no <strong>IDE</strong> is necessary to open these files and your notepad should also work.
+That being said, we still advise using an <strong>IDE</strong>, like <strong>VSCode</strong>, to interact with an <strong>mTree simulation</strong>,
+since they make viewing and editing files of different formats more intuitive.</p>
+</div>
+<p>The first few lines of you <code class="docutils literal notranslate"><span class="pre">.log</span></code> file document the config file parameters which were used to run the simulation</p>
+<figure class="align-center" id="id15">
+<img alt="../_images/quick_start_log_config.png" src="../_images/quick_start_log_config.png" />
+<figcaption>
+<p><span class="caption-text">basic_simulation-2022_02_28-09_32_04_PM-R1-experiment.log</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The rest of your <code class="docutils literal notranslate"><span class="pre">.log</span></code> file should look as follows.</p>
+<figure class="align-center" id="id16">
+<img alt="../_images/quick_start_log_rest.png" src="../_images/quick_start_log_rest.png" />
+<figcaption>
+<p><span class="caption-text">basic_simulation-2022_02_28-09_32_04_PM-R1-experiment.log</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Your <code class="docutils literal notranslate"><span class="pre">.data</span></code>  file should look something like this -</p>
+<figure class="align-center" id="id17">
+<img alt="../_images/quick_start_data_log.png" src="../_images/quick_start_data_log.png" />
+<figcaption>
+<p><span class="caption-text">basic_simulation-2022_02_28-09_32_04_PM-R1-experiment.data</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don’t worry if the log files on your end don’t match the ones shown here word for word. Since <strong>mTree</strong> is a
+concurrent Agent-Based Modelling software, it is common for different <span class="xref std std-ref">Actors</span> to log asynchronously to the
+same <code class="docutils literal notranslate"><span class="pre">.log</span></code> and <code class="docutils literal notranslate"><span class="pre">.data</span></code> files, giving them an out of order look.</p>
+</div>
+</section>
+</section>
+<section id="checking-for-errors">
+<span id="check-errors"></span><h3>Checking for Errors<a class="headerlink" href="#checking-for-errors" title="Permalink to this heading"></a></h3>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">F</span></code> (Windows) or  <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">F</span></code> (Mac) command to search for <code class="docutils literal notranslate"><span class="pre">Error</span></code> messages in the <code class="docutils literal notranslate"><span class="pre">.log</span></code> file. If there are no results then it is likely
+that your simulation has run properly. If there are instances of <code class="docutils literal notranslate"><span class="pre">Error</span></code> messages then check out the <span class="xref std std-ref">error</span> section.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you see no results for <code class="docutils literal notranslate"><span class="pre">Error</span></code> but your mTree log stops logging in the middle of the simulation, then it is still
+possible you have logic errors that don’t terminate the process. Luckily, you don’t have to worry about that in the
+<strong>common_value_auction</strong> auction example.</p>
+</div>
+</section>
+<section id="quitting">
+<span id="id4"></span><h3>Quitting<a class="headerlink" href="#quitting" title="Permalink to this heading"></a></h3>
+<p>Once the simulation has ended, you can run <code class="docutils literal notranslate"><span class="pre">quit</span></code> command in the <strong>docker shell</strong> to kill mTree. The <code class="docutils literal notranslate"><span class="pre">quit</span></code> command
+is used to kill all mTree processes as well as <strong>delete</strong> all <span class="xref std std-ref">Actor</span> instances previously created to run the simulation.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">quit</span>
+</pre></div>
+</div>
+<p>Your console should look like some version of this -</p>
+<figure class="align-center" id="id18">
+<img alt="../_images/quick_start_quitting_mTree.png" src="../_images/quick_start_quitting_mTree.png" />
+<figcaption>
+<p><span class="caption-text">Quitting <strong>mTree</strong></span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="conclusion">
+<span id="id5"></span><h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading"></a></h3>
+<p>Congratulations on successfully running your first mTree simulation! If you want to know how this example was built
+or you want to find more projects like this, checkout <a class="reference internal" href="../learning/examples_guide.html#common-value-auction"><span class="std std-ref">Common Value Auction</span></a> or <span class="xref std std-doc">learning_paths</span> sections.
+If you want to view a more in-depth case which builds an mTree project from scratch, checkout <span class="xref std std-doc">quick_build</span>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../reference/mtree_theory.html" class="btn btn-neutral float-right" title="Theory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CEE Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: #105a04;
+    }
+    /* Sidebar */
+    .wy-nav-side {
+      background: #105a04;
+    }
+  </style>
+
+
+</body>
+</html>
