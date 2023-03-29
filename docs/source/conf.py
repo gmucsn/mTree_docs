@@ -61,6 +61,9 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+### For RTD compatibility
+master_doc = 'index'
+
 #Side Bar logo 
 #TODO: figure out how to create a link using this to point to the Contents page
 #html_logo = '_static/sidebar_logo.png'
